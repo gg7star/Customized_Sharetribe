@@ -1,0 +1,34 @@
+2017/05/11 08:05:55 [emerg] 31084#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2017/05/11 08:05:55 [emerg] 31084#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2017/05/11 08:05:55 [emerg] 31084#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2017/05/11 08:05:55 [emerg] 31084#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2017/05/11 08:05:55 [emerg] 31084#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2017/05/11 08:05:55 [emerg] 31084#0: still could not bind()
+[ 2017-05-11 08:06:09.7736 31100/7f71f3453740 age/Wat/WatchdogMain.cpp:1291 ]: Starting Passenger watchdog...
+[ 2017-05-11 08:06:09.7768 31103/7fc2b3d33740 age/Cor/CoreMain.cpp:982 ]: Starting Passenger core...
+[ 2017-05-11 08:06:09.7768 31103/7fc2b3d33740 age/Cor/CoreMain.cpp:235 ]: Passenger core running in multi-application mode.
+[ 2017-05-11 08:06:09.7782 31103/7fc2b3d33740 age/Cor/CoreMain.cpp:732 ]: Passenger core online, PID 31103
+[ 2017-05-11 08:06:09.7822 31111/7fc8d2f6d740 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2017-05-11 08:06:09.7825 31111/7fc8d2f6d740 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 31111
+2017/05/11 08:06:12 [error] 31131#0: *4 "/home/ubuntu/ruby/sharetribe/public/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+
+
+[ 2017-05-11 08:06:34.4511 31111/7fc8d106a700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-05-11 08:06:34.4511 31103/7fc2b1c56700 age/Cor/CoreMain.cpp:532 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-05-11 08:06:34.4512 31111/7fc8d2f6d740 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-05-11 08:06:34.4512 31103/7fc2b3d33740 age/Cor/CoreMain.cpp:901 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-05-11 08:06:34.4512 31111/7fc8d0869700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2017-05-11 08:06:34.4512 31111/7fc8d0869700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+[ 2017-05-11 08:06:34.4514 31111/7fc8d106a700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2017-05-11 08:06:34.4515 31111/7fc8d2f6d740 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2017-05-11 08:06:34.4515 31103/7fc28b7fe700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+[ 2017-05-11 08:06:34.4515 31103/7fc28b7fe700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+[ 2017-05-11 08:06:34.4515 31103/7fc2b1c56700 Ser/Server.h:817 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2017-05-11 08:06:34.4515 31103/7fc2b1c56700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
+[ 2017-05-11 08:06:34.4515 31103/7fc2b0b52700 Ser/Server.h:817 ]: [ServerThr.3] Freed 128 spare client objects
+[ 2017-05-11 08:06:34.4516 31103/7fc2b0b52700 Ser/Server.h:464 ]: [ServerThr.3] Shutdown finished
+[ 2017-05-11 08:06:34.4516 31103/7fc28bfff700 Ser/Server.h:817 ]: [ServerThr.4] Freed 128 spare client objects
+[ 2017-05-11 08:06:34.4516 31103/7fc28bfff700 Ser/Server.h:464 ]: [ServerThr.4] Shutdown finished
+[ 2017-05-11 08:06:34.4516 31103/7fc2b13d4700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2017-05-11 08:06:34.4516 31103/7fc2b13d4700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2017-05-11 08:06:34.5032 31103/7fc2b3d33740 age/Cor/CoreMain.cpp:967 ]: Passenger core shutdown finished
