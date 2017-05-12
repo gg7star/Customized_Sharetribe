@@ -125,4 +125,7 @@ Kassi::Application.configure do
 
   # We don't need schema dumps in this environment
   config.active_record.dump_schema_after_migration = false
+
+  # Additional
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
