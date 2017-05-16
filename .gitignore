@@ -44,7 +44,7 @@ coverage/
 *.sock
 .vagrant
 .env
-
+.Gemfile.lock
 # React on Rails
 npm-debug.log*
 node_modules

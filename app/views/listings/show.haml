@@ -149,12 +149,7 @@
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
           .listing-author-details
             .listing-author-name
-              = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
-            - if @listing.author != @current_user
-              .listing-author-contact
-                %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
-                  .content
-                    = t(".contact")
+              = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"            
 
     - if received_testimonials.size > 0
       .row-with-divider.listing-author-activity
