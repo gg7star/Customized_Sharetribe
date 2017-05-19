@@ -1,37 +1,41 @@
 
 = form_for apply do |f|
   = f.label :given_name, 'First Name'
-  = f.text_field :given_name, :class => :text_field
+  = f.text_field :given_name, :class => :text_field, :maxlength => "30"
   = f.label :given_name, 'Last Name'
-  = f.text_field :family_name, :class => :text_field
+  = f.text_field :family_name, :class => :text_field, :maxlength => "30"
   = f.label :email, 'Email Address'
-  = f.text_field :email, :class => :text_field
+  = f.text_field :email, :class => :text_field, :maxlenght => "255"
   = f.label :phone_number, 'Phone Number'
   = f.text_field :phone_number, :class => :text_field
   = f.label :house_number_or_name, 'House number/Name'
   = f.text_field :house_number_or_name, :class => :text_field
   = f.label :street, 'Street'
-  = f.text_field :street, :class => :text_field
+  = f.text_field :street, :class => :text_field, :maxlength => "30"
   = f.label :area, 'Area'
-  = f.text_field :area, :class => :text_field
+  = f.text_field :area, :class => :text_field, :maxlength => "30"
   = f.label :city, 'City'
-  = f.text_field :city, :class => :text_field
+  = f.text_field :city, :class => :text_field, :maxlength => "30"
   = f.label :postcode, 'PostCode / Zip Code'
-  = f.text_field :postcode, :class => :text_field
+  = f.text_field :postcode, :class => :text_field, :maxlength => "30"
   = f.label :country, 'Country'
-  = f.text_field :country, :class => :text_field
+  = f.text_field :country, :class => :text_field, :maxlength => "30"
   = f.label :age, 'Your Age'
   = f.text_field :age, :class => :text_field
   = f.label :gender, 'Your Gender'
-  = f.text_field :gender, :class => :text_field
+  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
+  = f.select :gender, ['Male', 'Female'], :class => :text_field
   = f.label :medical_condition_description, 'Do you have any medical conditions?'
   = f.text_area :medical_condition_description, :class => :text_field
   = f.label :hear_about_description, 'How did you hear about Match Screening?'
-  = f.text_area :hear_about_description, :class => :text_field
+  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
+  = f.select :hear_about_description, ['Friend', 'Google Search', 'Google Advertisement', 'Facebook','Twitter', 'Newspaper', 'Other'], :class => :text_field
   = f.label :best_call_day_description, 'Which day of the week is the best for us to call you?'
-  = f.text_area :best_call_day_description, :class => :text_field
+  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
+  = f.select :best_call_day_description, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], :class => :text_field
   = f.label :best_call_time_description, 'What is the best time for us to call?'
-  = f.text_area :best_call_time_description, :class => :text_field
+  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
+  = f.select :best_call_time_description, ['09.00am -10.00am', '10.00am-11.00am', '1.00am-12.00pm', '12.00pm-13.00pm', '13.00pm-14.00pm', '14.00pm-15.00pm', '15.00pm-16.00pm', '16.00pm-17.00pm', '17.00pm-18.00pm', '18.00pm-19.00pm', 'Other'], :class => :text_field
   = f.label :convenient_time_descriptin, 'If Other - Please specify a convenient time.'
   = f.text_area :convenient_time_descriptin, :class => :text_field
   = f.hidden_field :transaction_id
