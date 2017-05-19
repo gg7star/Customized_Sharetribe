@@ -21,6 +21,7 @@
   = f.label :postcode, 'PostCode / Zip Code'
   = f.text_field :postcode, :class => :text_field, :maxlength => "30"
   = f.label :country_code, 'Country'
+  = render :partial => "layouts/info_text", :locals => { :text => "Please select your country"}
   = f.country_select :country_code, :selected =>'GB', :class => :text_field, :prompt => "- Select a country -"
   = f.label :age, 'Your Age'
   = render :partial => "layouts/info_text", :locals => { :text => "Please input 0 ~ 150"}
