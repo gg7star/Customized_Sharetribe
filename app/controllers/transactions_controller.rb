@@ -433,7 +433,9 @@ class TransactionsController < ApplicationController
     apply.area = apply_params[:area]
     apply.city = apply_params[:city]
     apply.postcode = apply_params[:postcode]
-    apply.country = apply_params[:country]
+    apply.country_code = apply_params[:country_code]
+    apply.country = ISO3166::Country[apply.country_code]
+    # apply.country.translations[I18n.locale.to_s] || apply.country.name
     apply.age = apply_params[:age]
     apply.gender = apply_params[:gender]
     apply.medical_condition_description = apply_params[:medical_condition_description]

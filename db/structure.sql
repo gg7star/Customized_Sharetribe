@@ -68,6 +68,8 @@ CREATE TABLE `applies` (
   `transaction_id` int(11) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
   `applier_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accepted` tinyint(1) DEFAULT NULL,
+  `country_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1671,7 +1673,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-19 22:01:05
+-- Dump completed on 2017-05-19 23:22:33
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3317,4 +3319,8 @@ INSERT INTO schema_migrations (version) VALUES ('20170613153964');
 INSERT INTO schema_migrations (version) VALUES ('20170613153965');
 
 INSERT INTO schema_migrations (version) VALUES ('20170613153966');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153967');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153968');
 

@@ -26,6 +26,8 @@
 #  transaction_id                :integer
 #  listing_id                    :integer
 #  applier_id                    :string(255)
+#  accepted                      :boolean
+#  country_code                  :string(255)
 #
 
 require 'rails_helper'

@@ -27,7 +27,9 @@ class AppliesController < ApplicationController
       @apply.area = params[:area]
       @apply.city = params[:city]
       @apply.postcode = params[:postcode]
-      @apply.country = params[:country]
+      @apply.country_code = params[:country_code]
+      @apply.country = ISO3166::Country[@apply.country_code]
+      # @apply.country.translations[I18n.locale.to_s] || @apply.country.name
       @apply.age = params[:age]
       @apply.gender = params[:gender]
       @apply.medical_condition_description = params[:medical_condition_description]
@@ -59,7 +61,9 @@ class AppliesController < ApplicationController
       @apply.area = params[:area]
       @apply.city = params[:city]
       @apply.postcode = params[:postcode]
-      @apply.country = params[:country]
+      @apply.country_code = params[:country_code]
+      @apply.country = ISO3166::Country[@apply.country_code]
+      # @apply.country.translations[I18n.locale.to_s] || @apply.country.name
       @apply.age = params[:age]
       @apply.gender = params[:gender]
       @apply.medical_condition_description = params[:medical_condition_description]

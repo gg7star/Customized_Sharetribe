@@ -143,6 +143,9 @@ GEM
     countries (1.2.5)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
+    country_select (2.5.2)
+      countries (~> 1.2.0)
+      sort_alphabetical (~> 1.0)
     css_parser (1.4.5)
       addressable
     cucumber (2.4.0)
@@ -470,6 +473,8 @@ GEM
     sitemap_generator (5.1.0)
       builder
     slop (3.6.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -510,6 +515,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (0.3.1)
+    unicode_utils (1.4.0)
     uuidtools (2.1.5)
     warden (1.2.6)
       rack (>= 1.0)
@@ -547,6 +553,7 @@ DEPENDENCIES
   compass-rails (~> 2.0)
   connection_pool (~> 2.1)
   countries (~> 1.2, >= 1.2.2)
+  country_select
   css_parser (~> 1.4.5)
   cucumber-rails (~> 1.4.0)
   daemons (~> 1.2.4)
