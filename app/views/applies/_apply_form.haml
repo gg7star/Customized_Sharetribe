@@ -1,3 +1,5 @@
+- content_for :javascript do
+  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 = form_for apply do |f|
   = f.label :given_name, 'First Name'
@@ -18,9 +20,10 @@
   = f.text_field :city, :class => :text_field, :maxlength => "30"
   = f.label :postcode, 'PostCode / Zip Code'
   = f.text_field :postcode, :class => :text_field, :maxlength => "30"
-  = f.label :country, 'Country'
-  = f.text_field :country, :class => :text_field, :maxlength => "30"
+  = f.label :country_code, 'Country'
+  = f.country_select :country_code, :selected =>'GB', :class => :text_field, :prompt => "- Select a country -"
   = f.label :age, 'Your Age'
+  = render :partial => "layouts/info_text", :locals => { :text => "Please input 0 ~ 150"}
   = f.text_field :age, :class => :text_field
   = f.label :gender, 'Your Gender'
   = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
@@ -41,4 +44,12 @@
   = f.hidden_field :transaction_id
   = f.hidden_field :listing_id
   = f.hidden_field :applier_id
+
+  -# Terms
+  .outer-checkbox-container
+    .checkbox-container
+      - unless @skip_terms_checkbox
+        %input{:type => "checkbox", :id => "accepted"}
+        = f.label :accepted, 'I have read and agree to', :class => "checkbox"
+
   = f.button "Apply Now"
