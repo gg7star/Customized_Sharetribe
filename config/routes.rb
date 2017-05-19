@@ -125,6 +125,7 @@ Kassi::Application.routes.draw do
     # All new transactions (in the future)
     get "/transactions/new" => "transactions#new", as: :new_transaction
 
+    # All new applies (in the future)
     resources :applies
 
     # preauthorize flow
