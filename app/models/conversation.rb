@@ -2,13 +2,26 @@
 #
 # Table name: conversations
 #
-#  id              :integer          not null, primary key
-#  title           :string(255)
-#  listing_id      :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  last_message_at :datetime
-#  community_id    :integer
+#  id                   :integer          not null, primary key
+#  title                :string(255)
+#  listing_id           :integer
+#  created_at           :datetime
+#  updated_at           :datetime
+#  last_message_at      :datetime
+#  community_id         :integer
+#  given_name           :string(255)
+#  family_name          :string(255)
+#  email                :string(255)
+#  phonenumber          :string(255)
+#  phone_number         :string(255)
+#  house_number_or_name :string(255)
+#  street               :string(255)
+#  area                 :string(255)
+#  city                 :string(255)
+#  postcode             :string(255)
+#  country              :string(255)
+#  age                  :integer
+#  gender               :string(255)
 #
 # Indexes
 #

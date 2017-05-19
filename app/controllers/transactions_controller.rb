@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
   end
 
   MessageForm = Form::Message
+  # ApplyForm = Form::Apply
 
   TransactionForm = EntityUtils.define_builder(
     [:listing_id, :fixnum, :to_integer, :mandatory],
@@ -55,6 +56,7 @@ class TransactionsController < ApplicationController
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
       redirect_to(session[:return_to_content] || root)
     }
+
   end
 
   def create
@@ -164,6 +166,13 @@ class TransactionsController < ApplicationController
         listing.author_id == @current_user.id
       end
 
+    apply = Apply.where(transaction_id: tx[:id]).first
+    if apply == nil
+      apply = Apply.new
+      apply.tranaction_id = tx[:id]
+      apply.listing_id = listing.id
+      apply.applier_id = @current_user.id
+    end
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       transaction: tx,
@@ -174,7 +183,8 @@ class TransactionsController < ApplicationController
       role: role,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
-      price_break_down_locals: price_break_down_locals(tx)
+      price_break_down_locals: price_break_down_locals(tx),
+      apply: apply
     }
   end
 
@@ -484,6 +494,11 @@ class TransactionsController < ApplicationController
         })
     }
 
+    apply = Apply.new
+    apply.transaction_id = params[:id]
+    apply.listing_id = listing_model.id
+    apply.applier_id = @current_user.id
+
     render "transactions/new", locals: {
              listing: listing,
              author: author,
@@ -492,6 +507,7 @@ class TransactionsController < ApplicationController
              booking_start: booking_start,
              booking_end: booking_end,
              quantity: quantity,
+             apply: apply,
              form_action: person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
            }
   end

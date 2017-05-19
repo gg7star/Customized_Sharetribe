@@ -125,6 +125,8 @@ Kassi::Application.routes.draw do
     # All new transactions (in the future)
     get "/transactions/new" => "transactions#new", as: :new_transaction
 
+    resources :applies
+
     # preauthorize flow
 
     # Deprecated route (26-08-2016)

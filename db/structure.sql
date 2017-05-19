@@ -37,6 +37,42 @@ CREATE TABLE `active_sessions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `applies`
+--
+
+DROP TABLE IF EXISTS `applies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `applies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `given_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `family_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `house_number_or_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `area` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postcode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `medical_condition_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hear_about_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `best_call_day_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `best_call_time_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `convenient_time_descriptin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
+  `applier_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `auth_tokens`
 --
 
@@ -428,6 +464,19 @@ CREATE TABLE `conversations` (
   `updated_at` datetime DEFAULT NULL,
   `last_message_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `given_name` varchar(255) DEFAULT NULL,
+  `family_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `house_number_or_name` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `area` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `postcode` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_community_id` (`community_id`) USING BTREE,
   KEY `index_conversations_on_last_message_at` (`last_message_at`) USING BTREE,
@@ -1622,7 +1671,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-16  7:11:54
+-- Dump completed on 2017-05-19  5:17:45
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3254,4 +3303,18 @@ INSERT INTO schema_migrations (version) VALUES ('20170313201104');
 INSERT INTO schema_migrations (version) VALUES ('20170314075755');
 
 INSERT INTO schema_migrations (version) VALUES ('20170613153959');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153960');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153961');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153962');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153963');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153964');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153965');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153966');
 
