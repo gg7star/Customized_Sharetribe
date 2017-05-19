@@ -114,8 +114,9 @@ class TransactionsController < ApplicationController
     ).on_success { |(_, (_, _, _, process), _, _, tx)|
       after_create_actions!(process: process, transaction: tx[:transaction], community_id: @current_community.id)
       flash[:notice] = after_create_flash(process: process) # add more params here when needed
-      apply = Apply.create(params)
-      apply.save
+      # redirect_to controller: 'applies', action: 'create', params: params
+      @apply = create_apply(params: params, transaction: tx[:transaction])
+      # redirect_to post_url('applies#create?params=#{form_params}') and return
       redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction], form_params: params) # add more params here when needed
     }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
@@ -363,8 +364,7 @@ class TransactionsController < ApplicationController
     when :none
       person_transaction_path(person_id: starter_id, id: transaction[:id])
     else
-      redirect_to controller: 'applies', action: 'create', params: form_params
-      # raise NotImplementedError.new("Not implemented for process #{process}")
+      raise NotImplementedError.new("Not implemented for process #{process}")
     end
   end
 
@@ -419,6 +419,32 @@ class TransactionsController < ApplicationController
   def generate_message(form_params)
     apply_params = form_params[:apply]
     new_message = apply_params[:given_name] + ' ' + apply_params[:family_name] + '(' + apply_params[:email] + ')' + " has applied on account " + form_params[:person_id]
+  end
+
+  def create_apply(params:, transaction:)
+    apply = Apply.new
+    apply_params = params[:apply]
+    apply.given_name = apply_params[:given_name]
+    apply.family_name = apply_params[:family_name]
+    apply.email = apply_params[:email]
+    apply.phone_number = apply_params[:phone_number]
+    apply.house_number_or_name = apply_params[:house_number_or_name]
+    apply.street = apply_params[:street]
+    apply.area = apply_params[:area]
+    apply.city = apply_params[:city]
+    apply.postcode = apply_params[:postcode]
+    apply.country = apply_params[:country]
+    apply.age = apply_params[:age]
+    apply.gender = apply_params[:gender]
+    apply.medical_condition_description = apply_params[:medical_condition_description]
+    apply.hear_about_description = apply_params[:hear_about_description]
+    apply.best_call_day_description = apply_params[:best_call_day_description]
+    apply.best_call_time_description = apply_params[:best_call_time_description]
+    apply.convenient_time_descriptin = apply_params[:convenient_time_descriptin]
+    apply.transaction_id = transaction[:id]
+    apply.listing_id = apply_params[:listing_id]
+    apply.applier_id = apply_params[:applier_id]
+    apply.save
   end
 
   def validate_form(form_params, process)

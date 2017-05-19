@@ -3,4 +3,7 @@
 .centered-section-wide
   = render :partial => "transactions/details", locals: {role: role, tx: transaction, transaction_model: transaction_model, listing: listing, is_author: is_author, price_break_down_locals: price_break_down_locals}
 .centered-section-wide
-  = render :partial => "applies/show_apply_form", locals: {apply: @apply}
+  .message-avatar-padding
+    .row
+      .col-12
+        = render :partial => "applies/show_apply_form", locals: {apply: @apply}

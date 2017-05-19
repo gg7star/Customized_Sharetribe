@@ -39,6 +39,3 @@
           = render :partial => "applies/apply_form", locals: {apply: apply}
       - if quantity
         = hidden_field_tag(:quantity, quantity)
-      .row
-        .col-12
-          = button_tag t("conversations.new.send_message"), :class => "send_button"
