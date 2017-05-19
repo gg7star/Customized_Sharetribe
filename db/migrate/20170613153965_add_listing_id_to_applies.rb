@@ -1,4 +1,4 @@
-class AddListingIdAndApplierIdToApplies < ActiveRecord::Migration
+class AddListingIdToApplies < ActiveRecord::Migration
   def change
     add_column :applies, :listing_id, :integer
   end
