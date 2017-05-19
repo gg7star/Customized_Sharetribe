@@ -60,6 +60,8 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    puts "\n\n\ntransaction_create_params = " % params
+    params[:message] = generate_message(params)
     Result.all(
       ->() {
         TransactionForm.validate(params)
@@ -112,7 +114,10 @@ class TransactionsController < ApplicationController
     ).on_success { |(_, (_, _, _, process), _, _, tx)|
       after_create_actions!(process: process, transaction: tx[:transaction], community_id: @current_community.id)
       flash[:notice] = after_create_flash(process: process) # add more params here when needed
-      redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction]) # add more params here when needed
+      # redirect_to controller: 'applies', action: 'create', params: params
+      @apply = create_apply(params: params, transaction: tx[:transaction])
+      # redirect_to post_url('applies#create?params=#{form_params}') and return
+      redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction], form_params: params) # add more params here when needed
     }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
       redirect_to(session[:return_to_content] || root)
@@ -166,12 +171,12 @@ class TransactionsController < ApplicationController
         listing.author_id == @current_user.id
       end
 
-    apply = Apply.where(transaction_id: tx[:id]).first
-    if apply == nil
-      apply = Apply.new
-      apply.transaction_id = tx[:id]
-      apply.listing_id = listing.id
-      apply.applier_id = @current_user.id
+    @apply = Apply.where(transaction_id: tx[:id]).first
+    if @apply == nil
+      @apply = Apply.new
+      @apply.transaction_id = tx[:id]
+      @apply.listing_id = listing.id
+      @apply.applier_id = @current_user.id
     end
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
@@ -181,14 +186,15 @@ class TransactionsController < ApplicationController
       conversation_other_party: person_entity_with_url(other_party(conversation)),
       is_author: is_author,
       role: role,
+      apply: @apply,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
-      price_break_down_locals: price_break_down_locals(tx),
-      apply: apply
+      price_break_down_locals: price_break_down_locals(tx)
     }
   end
 
   def created
+    puts "\n\n\ntransaction_created_params = " % params
     proc_status = transaction_service.finalize_create(
       community_id: @current_community.id,
       transaction_id: params[:transaction_id],
@@ -353,7 +359,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def after_create_redirect(process:, starter_id:, transaction:)
+  def after_create_redirect(process:, starter_id:, transaction:, form_params:)
     case process[:process]
     when :none
       person_transaction_path(person_id: starter_id, id: transaction[:id])
@@ -408,6 +414,37 @@ class TransactionsController < ApplicationController
         Result::Success.new(MarketplaceService::Community::Query.payment_type(@current_community.id))
       }
     )
+  end
+
+  def generate_message(form_params)
+    apply_params = form_params[:apply]
+    new_message = apply_params[:given_name] + ' ' + apply_params[:family_name] + '(' + apply_params[:email] + ')' + " has applied on account " + form_params[:person_id]
+  end
+
+  def create_apply(params:, transaction:)
+    apply = Apply.new
+    apply_params = params[:apply]
+    apply.given_name = apply_params[:given_name]
+    apply.family_name = apply_params[:family_name]
+    apply.email = apply_params[:email]
+    apply.phone_number = apply_params[:phone_number]
+    apply.house_number_or_name = apply_params[:house_number_or_name]
+    apply.street = apply_params[:street]
+    apply.area = apply_params[:area]
+    apply.city = apply_params[:city]
+    apply.postcode = apply_params[:postcode]
+    apply.country = apply_params[:country]
+    apply.age = apply_params[:age]
+    apply.gender = apply_params[:gender]
+    apply.medical_condition_description = apply_params[:medical_condition_description]
+    apply.hear_about_description = apply_params[:hear_about_description]
+    apply.best_call_day_description = apply_params[:best_call_day_description]
+    apply.best_call_time_description = apply_params[:best_call_time_description]
+    apply.convenient_time_descriptin = apply_params[:convenient_time_descriptin]
+    apply.transaction_id = transaction[:id]
+    apply.listing_id = apply_params[:listing_id]
+    apply.applier_id = apply_params[:applier_id]
+    apply.save
   end
 
   def validate_form(form_params, process)
