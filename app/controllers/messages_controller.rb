@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
   before_filter EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_do_this")
 
   def create
+    puts "\n\n\nmessage_create_params = " % parmas
     unless is_participant?(@current_user, params[:message][:conversation_id])
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
       return redirect_to search_path
