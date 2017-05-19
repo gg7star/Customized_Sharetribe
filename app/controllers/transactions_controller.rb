@@ -169,7 +169,7 @@ class TransactionsController < ApplicationController
     apply = Apply.where(transaction_id: tx[:id]).first
     if apply == nil
       apply = Apply.new
-      apply.tranaction_id = tx[:id]
+      apply.transaction_id = tx[:id]
       apply.listing_id = listing.id
       apply.applier_id = @current_user.id
     end
