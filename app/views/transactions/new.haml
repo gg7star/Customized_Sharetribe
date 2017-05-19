@@ -23,23 +23,9 @@
       - m_price_break_down.each do |price_break_down|
         %li
           = render partial: "transactions/price_break_down", locals: price_break_down
+          = render :partial => "applies/apply_form", locals: {apply: apply}
 
   = form_tag(form_action, method: :post, id: "transaction-form") do
 
     = hidden_field_tag(:start_on, booking_start)
     = hidden_field_tag(:end_on, booking_end)
-
-
-    .preauthorize-section
-      %h2
-        = t("conversations.new.send_message_to_user", person: author_link).html_safe
-      .row
-        .col-12
-          = text_area_tag(:message, nil, :class => "text_area")
-
-      - if quantity
-        = hidden_field_tag(:quantity, quantity)
-
-      .row
-        .col-12
-          = button_tag t("conversations.new.send_message"), :class => "send_button"
