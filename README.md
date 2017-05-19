@@ -124,6 +124,10 @@ Before you get started, the following needs to be installed:
 
   ```bash
   bundle exec rake ts:start
+
+  or as deamon
+
+  script/delayed_job start
   ```
 
 1. Start the development server:
@@ -277,6 +281,10 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 
   ```bash
   RAILS_ENV=production bundle exec rake ts:start
+
+  or as deamon
+
+  RAILS_ENV=production script/delayed_job start
   ```
 
 1. Precompile the assets:
