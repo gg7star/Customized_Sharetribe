@@ -124,10 +124,6 @@ Before you get started, the following needs to be installed:
 
   ```bash
   bundle exec rake ts:start
-
-  or as deamon
-
-  script/delayed_job start
   ```
 
 1. Start the development server:
@@ -159,6 +155,10 @@ Some components are created with React (see [documentation](https://github.com/s
 
   ```bash
   bundle exec rake jobs:work
+
+  or as daemon
+
+  script/delayed_job start
   ```
 
 
@@ -281,10 +281,6 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 
   ```bash
   RAILS_ENV=production bundle exec rake ts:start
-
-  or as deamon
-
-  RAILS_ENV=production script/delayed_job start
   ```
 
 1. Precompile the assets:
@@ -297,6 +293,10 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 
   ```bash
   RAILS_ENV=production bundle exec rake jobs:work
+
+  or as daemon
+
+  RAILS_ENV=production script/delayed_job start
   ```
 
 1. In a new console, open the project root folder and start the server:
