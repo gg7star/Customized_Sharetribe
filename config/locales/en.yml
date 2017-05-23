@@ -660,6 +660,7 @@ en:
       send_message_to_user: "Send message to %{person}"
       about_listing: "About listing %{listing_title}"
       author_has_to_accept_request: "%{author_name} needs to accept the request before you can pay"
+      complete_details: "Please complete the details below"
     show:
       in_response_to_listing: "about listing"
       message_sent_by: "Message sent by"
