@@ -57,7 +57,7 @@ class FreeTransactionsController < ApplicationController
       # TODO: remove references to transaction model
       transaction = Transaction.find(transaction_id)
 
-      flash[:notice] = t("layouts.notifications.message_sent")
+      flash[:notice] = t("layouts.notifications.message_sent_success")
       Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || search_path
     else
