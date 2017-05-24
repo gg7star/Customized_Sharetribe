@@ -2,11 +2,15 @@
 
   .col-3
     .conversation-details-container
-      = link_to conversation[:other][:url] do
+      - if @is_current_community_admin == true
+        = link_to conversation[:other][:url] do
+          = image_tag conversation[:other][:avatar], :class => "conversation-avatar"
+      - else
         = image_tag conversation[:other][:avatar], :class => "conversation-avatar"
+
       .conversation-details
         .conversation-other-party-name
-          = link_to_unless conversation[:other][:is_deleted], conversation[:other][:display_name], conversation[:other][:url]
+          = link_to_unless conversation[:other][:is_deleted] || !@is_current_community_admin, conversation[:other][:display_name], conversation[:other][:url]
         .conversation-last-message-at
           = conversation[:last_activity_ago]
 

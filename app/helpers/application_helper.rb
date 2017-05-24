@@ -75,7 +75,7 @@ module ApplicationHelper
 
     image_url = person.image.present? ? person.image.url(size) : missing_avatar(size)
 
-    link_to_unless(person.deleted?, image_tag(image_url, avatar_html_options), person)
+    link_to_unless(person.deleted? || !@is_current_community_admin, image_tag(image_url, avatar_html_options), person)
   end
 
   def large_avatar_thumb(person, options={})
