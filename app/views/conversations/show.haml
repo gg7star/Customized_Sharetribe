@@ -1,6 +1,7 @@
 = render :partial => "conversations/conversation_header", locals: {other_party: conversation_data[:other_person]}
 
-= render :partial => "applies/show_apply_form", locals: {@apply: apply}
-
--# .centered-section-wide
--#   = render :partial => "conversations/messages_and_form", locals: {role: :participant, message_form: message_form, message_form_action: message_form_action, messages: messages}
+- if @apply == nil
+  .centered-section-wide
+    = render :partial => "conversations/messages_and_form", locals: {role: :participant, message_form: message_form, message_form_action: message_form_action, messages: messages}
+- else
+  = render :partial => "applies/show_apply_form", locals: {apply: @apply}
