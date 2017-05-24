@@ -601,9 +601,15 @@ module ApplicationHelper
 
   # Return a link to the listing author
   def author_link(listing)
-    link_to(PersonViewUtils.person_display_name(listing.author, @current_community),
-            listing.author,
-            {:title => PersonViewUtils.person_display_name(listing.author, @current_community)})
+    if @is_current_community_admin == true
+      link_to(PersonViewUtils.person_display_name(listing.author, @current_community),
+              listing.author,
+              {:title => PersonViewUtils.person_display_name(listing.author, @current_community)})
+    else
+      link_to(PersonViewUtils.person_display_name(listing.author, @current_community),
+              "#",
+              {:title => PersonViewUtils.person_display_name(listing.author, @current_community)})
+    end
   end
 
   def with_invite_link(&block)
