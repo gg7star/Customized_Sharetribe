@@ -6,4 +6,7 @@
   .message-avatar-padding
     .row
       .col-12
-        = render :partial => "applies/show_apply_form", locals: {apply: @apply}
+        - if @apply == nil
+          = render :partial => "conversations/messages_and_form", locals: {role: role, message_form: message_form, message_form_action: message_form_action, messages: messages}
+        - else
+          = render :partial => "applies/show_apply_form", locals: {apply: @apply}

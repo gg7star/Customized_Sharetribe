@@ -37,16 +37,14 @@ class ConversationsController < ApplicationController
 
     MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
 
-    apply = Apply.where(:conversation_id => conversation_id, :limit => 1)
+    @apply = Apply.where(conversation_id: conversation_id).first
 
     render locals: {
       messages: messages.reverse,
       conversation_data: conversation,
       message_form: message_form,
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
-      apply: apply
-      # apply_form: apply_form,
-      # appy_form_action: person_apply_path(@current_user, :conversation_id => conversation[:id])
+      apply: @apply
     }
   end
 
