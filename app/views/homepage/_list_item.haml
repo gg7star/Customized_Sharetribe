@@ -48,23 +48,13 @@
           .home-list-shape-value-mobile
             = shape_name(listing)
 
-
-    .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
-      .home-list-avatar
-        - if @is_current_community_admin == true
-          = link_to(person_path(username: listing.author.username), :class => "home-fluid-thumbnail-grid-author-avatar-image") do
-            = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
-        - else
-          = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
-
-      .home-list-author-details
-        - if @is_current_community_admin == true
-          = link_to(person_path(username: listing.author.username), :class => "home-list-author-name") do
-            = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
-        - else
+      - if @is_current_community_admin == true
+        = link_to(person_path(username: listing.author.username), :class => "home-list-author-name") do
           = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
+      - else
+        = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
 
-        .home-list-author-reviews
-          - if listing.author.num_of_reviews > 0
-            = icon_tag("testimonial")
-            = pluralize(listing.author.num_of_reviews, t(".review"), t(".reviews"))
+      .home-list-author-reviews
+        - if listing.author.num_of_reviews > 0
+          = icon_tag("testimonial")
+          = pluralize(listing.author.num_of_reviews, t(".review"), t(".reviews"))
