@@ -14,7 +14,7 @@ class PersonMessagesController < ApplicationController
     validate(params).and_then { |params|
       save_conversation(params)
     }.on_success { |conversation|
-      flash[:notice] = t("layouts.notifications.message_sent")
+      flash[:notice] = t("layouts.notifications.message_sent_success")
       Delayed::Job.enqueue(MessageSentJob.new(conversation.messages.last.id, @current_community.id))
       redirect_to @recipient
     }.on_error {

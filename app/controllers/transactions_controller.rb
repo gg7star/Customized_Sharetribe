@@ -353,7 +353,7 @@ class TransactionsController < ApplicationController
   def after_create_flash(process:)
     case process[:process]
     when :none
-      t("layouts.notifications.message_sent")
+      t("layouts.notifications.message_sent_success")
     else
       raise NotImplementedError.new("Not implemented for process #{process}")
     end
