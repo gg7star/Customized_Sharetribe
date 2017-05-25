@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_apply_form("#{I18n.locale}");
+  initialize_apply_form("#{I18n.locale}", accepted);
 
 = form_for apply do |f|
   = f.label :given_name, 'First Name'
