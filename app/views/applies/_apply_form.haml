@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
+  initialize_apply_form("#{I18n.locale}");
 
 = form_for apply do |f|
   = f.label :given_name, 'First Name'
@@ -42,8 +42,8 @@
   -# Terms
   .outer-checkbox-container
     .checkbox-container
-      - unless @skip_terms_checkbox
-        %input{:type => "checkbox", :id => "accepted"}
+      - unless @skip_accepted_checkbox
+        %input{:type => "checkbox", :id => "accepted", :name => "apply[accepted]"}
         = f.label :accepted, 'I have read and agree to', :class => "checkbox"
 
   = f.hidden_field :accepted, :value => apply.accepted

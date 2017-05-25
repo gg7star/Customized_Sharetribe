@@ -36,5 +36,5 @@ class Apply < ActiveRecord::Base
   # validates_length_of :email, :within => 1..255, :allow_nil => true, :allow_blank => true
   validates_inclusion_of :gender, in: %w(Male Female)
   # validates_inclusion_of :age, in: 0..150, message: 'Age is only for 0 ~ 150'
-
+  validates :accepted, :acceptance => true
 end
