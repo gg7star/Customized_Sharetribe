@@ -21,25 +21,18 @@
   = f.label :postcode, 'PostCode / Zip Code'
   = f.text_field :postcode, :class => :text_field, :maxlength => "30"
   = f.label :country_code, 'Country'
-  = render :partial => "layouts/info_text", :locals => { :text => "Please select your country"}
-  = f.country_select :country_code, :selected =>'GB', :class => :text_field, :prompt => "- Select a country -"
+  = f.country_select :country_code, { :include_blank => "- Select a country -" }
   = f.label :age, 'Your Age'
   = render :partial => "layouts/info_text", :locals => { :text => "Please input 0 ~ 150"}
   = f.text_field :age, :class => :text_field
-  = f.label :gender, 'Your Gender'
-  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
-  = f.select :gender, ['Male', 'Female'], :class => :text_field
+  = f.label :gender, 'Your Gender *'
+  = f.select :gender, ['Male', 'Female'], { :include_blank => '- Please select -' }, :required => true, :class => :text_field
   = f.label :medical_condition_description, 'Do you have any medical conditions?'
   = f.text_area :medical_condition_description, :class => :text_field
-  = f.label :hear_about_description, 'How did you hear about Match Screening?'
-  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
-  = f.select :hear_about_description, ['Friend', 'Google Search', 'Google Advertisement', 'Facebook','Twitter', 'Newspaper', 'Other'], :class => :text_field
   = f.label :best_call_day_description, 'Which day of the week is the best for us to call you?'
-  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
-  = f.select :best_call_day_description, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], :class => :text_field
-  = f.label :best_call_time_description, 'What is the best time for us to call?'
-  = render :partial => "layouts/info_text", :locals => { :text => "Please select"}
-  = f.select :best_call_time_description, ['09.00am -10.00am', '10.00am-11.00am', '1.00am-12.00pm', '12.00pm-13.00pm', '13.00pm-14.00pm', '14.00pm-15.00pm', '15.00pm-16.00pm', '16.00pm-17.00pm', '17.00pm-18.00pm', '18.00pm-19.00pm', 'Other'], :class => :text_field
+  = f.select :best_call_day_description, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], :prompt => '- Please select -'
+  = f.label :best_call_time_description, 'What is the best time for us to call? *'
+  = f.select :best_call_time_description, ['09.00am -10.00am', '10.00am-11.00am', '1.00am-12.00pm', '12.00pm-13.00pm', '13.00pm-14.00pm', '14.00pm-15.00pm', '15.00pm-16.00pm', '16.00pm-17.00pm', '17.00pm-18.00pm', '18.00pm-19.00pm', 'Other'], { :include_blank => '- Please select -' }, :required => true
   = f.label :convenient_time_descriptin, 'If Other - Please specify a convenient time.'
   = f.text_area :convenient_time_descriptin, :class => :text_field
   = f.hidden_field :transaction_id
@@ -52,5 +45,7 @@
       - unless @skip_terms_checkbox
         %input{:type => "checkbox", :id => "accepted"}
         = f.label :accepted, 'I have read and agree to', :class => "checkbox"
+
+  = f.hidden_field :accepted, :value => apply.accepted
 
   = f.button "Apply Now"

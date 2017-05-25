@@ -31,9 +31,10 @@
 #
 
 class Apply < ActiveRecord::Base
-  validates :given_name, presence: true
-  validates :family_name, presence: true
-  validates :email, presence: true
+  # validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  # validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  # validates_length_of :email, :within => 1..255, :allow_nil => true, :allow_blank => true
   validates_inclusion_of :gender, in: %w(Male Female)
-  validates_inclusion_of :age, in: 0..150, message: 'Age is only for 0 ~ 150'
+  # validates_inclusion_of :age, in: 0..150, message: 'Age is only for 0 ~ 150'
+
 end
