@@ -125,3 +125,12 @@
       $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
     = render :partial => "layouts/noscript"
+
+  %section
+    = render partial: "layouts/content_service_video"
+
+  %section
+    = render partial: "layouts/content_service_description"
+
+  %section
+    = render partial: "layouts/content_service_testimonials"

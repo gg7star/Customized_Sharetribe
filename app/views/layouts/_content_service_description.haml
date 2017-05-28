@@ -1,0 +1,36 @@
+- padding_image = image_path("testimonials/padding_gray.jpg")
+- testimonials_ico = image_path("testimonials/testimonials_ico.jpg")
+.content-service-description-container{style: "padding: 30px;"}
+  .row
+    .content-service-description-title
+      = 'Our Service'
+  .row
+    %img{alt: "", src: padding_image}
+  .row
+    .content-service-description-text
+      = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered"
+  .row
+    %table{class: "content-service-description-table"}
+      %tbody{class: "content-service-description-tbody"}
+        %tr{class: "content-service-description-tr", style: "background: #eeeeee"}
+          %td{class: "content-service-description-image-td", style: "width: 30%;"}
+            %div
+              %img{alt: "", src: testimonials_ico, width: '30px'}
+            %div{class: "content-service-description-td-image-title"}
+              = "Contrary to popular belief"
+            %div{class: "content-service-description-td-image-text"}
+              = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
+          %td{class: "content-service-description-title-td", style: "width: 30%;"}
+            %div
+              %img{alt: "", src: testimonials_ico, width: '30px'}
+            %div{class: "content-service-description-td-image-title"}
+              = "Contrary to popular belief"
+            %div{class: "content-service-description-td-image-text"}
+              = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
+          %td{class: "content-service-description-name-td", style: "width: 30%;"}
+            %div
+              %img{alt: "", src: testimonials_ico, width: '30px'}
+            %div{class: "content-service-description-td-image-title"}
+              = "Contrary to popular belief"
+            %div{class: "content-service-description-td-image-text"}
+              = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
