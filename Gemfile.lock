@@ -517,6 +517,7 @@ GEM
     unicode-display_width (0.3.1)
     unicode_utils (1.4.0)
     uuidtools (2.1.5)
+    video_player (1.0.0)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -629,6 +630,7 @@ DEPENDENCIES
   ts-delayed-delta (~> 2.0.2)!
   uglifier (~> 2.7.2)
   uuidtools (~> 2.1)
+  video_player
   web-console (~> 2.0)
   web_translate_it (~> 2.1.8)
   will_paginate (~> 3.0.5)

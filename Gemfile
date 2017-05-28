@@ -195,3 +195,6 @@ gem 'intercom', '~> 3.5.10'
 
 # additional gem
 gem 'daemons', '~> 1.2.4'
+
+# additional gem for video player
+gem 'video_player'
