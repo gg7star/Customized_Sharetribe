@@ -4,10 +4,10 @@
     .content-service-video-title
       = 'Contrary to popular belief, Lorem Ipsum'
   .row
-    %img{alt: "", src: padding_image}
+    %img{alt: "", src: padding_image, class: "content_service_padding_image"}
   .row
     .content-service-video-text
       = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered'
   .row{style: "margin-bottom: 0em;"}
-    .content-service-video-youtube
-      %iframe{id: 'ytplayer', type: 'text/html', width: '520', height: '330', src: 'https://www.youtube.com/embed/nZjtOEoLF3s?autoplay=0&origin=http://example.com', frameborder: '0'}
+    .intrinsic-container
+      %iframe{type: 'text/html', src: 'https://www.youtube.com/embed/nZjtOEoLF3s?autoplay=0&origin=http://example.com',  align: "center", frameborder: '0'}

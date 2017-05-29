@@ -162,3 +162,15 @@
             = t(".no_listings_notification",
                   add_listing_link: link_to(t(".add_listing_link_text"),
                   new_listing_path(ref: "add_listing_link"))).html_safe
+
+%section
+  = render partial: "layouts/content_service_video"
+
+%section
+  = render partial: "layouts/content_service_description"
+
+%section
+  = render partial: "layouts/content_service_testimonials"
+
+%section
+  = render :partial => 'layouts/footer'
