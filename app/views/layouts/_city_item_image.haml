@@ -1,0 +1,14 @@
+-#
+  City image for grid listings
+
+  Includes:
+  - City image
+  - Overlay (transparent gradient black)
+  - City name
+  - Adds `modifier_class` which can be used for view specific fine tunings
+
+= link_to("?view=list&q=#{capital_name}", :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link") do
+  .fluid-thumbnail-grid-image-image-container{:class => "#{modifier_class}"}
+    = image_tag image_path, {:alt => capital_name, :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
+    .fluid-thumbnail-grid-image-capital-overlay{:class => "#{modifier_class}"}
+      = capital_name
