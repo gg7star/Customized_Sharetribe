@@ -25,3 +25,31 @@
   text-align: center;
   vertical-aligen: middle;
 }
+
+.content_service_padding_image {
+  width: 60%;
+}
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  padding-bottom: 40%;
+}
+
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 15%;
+  width: 70%;
+  height: 100%;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
