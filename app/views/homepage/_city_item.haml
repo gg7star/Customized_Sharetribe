@@ -1,0 +1,29 @@
+-# %table
+-#   %tbody
+-#     %tr
+-#       %td
+-#         %img{:src => image_path("capital/london.jpg"), style: "width: 30%; padding-left: 5%; padding-bottom: 5%"}}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/london.jpg'), :capital_name => 'London'}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/losangeles.jpg'), :capital_name => 'Los Angeles'}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/newyork.jpg'), :capital_name => 'New York'}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/paris.jpg'), :capital_name => 'Paris'}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/berlin.jpg'), :capital_name => 'Berlin'}
+
+.home-fluid-thumbnail-grid-item
+  %div
+    = render :partial => "layouts/city_item_image", :locals => {:modifier_class => "", :image_path => image_path('capital/zurich.jpg'), :capital_name => 'Zurich'}
