@@ -1,6 +1,14 @@
+@import "mixins/all";
+@import "compass/css3/background-size";
+
 .content-service-video-container {
   background: #eeeeee;
   text-align: center;
+}
+
+.content-service-video-wrapper {
+  @include wrapper(0);
+  background: #eeeeee;
 }
 
 .content-service-video-title {

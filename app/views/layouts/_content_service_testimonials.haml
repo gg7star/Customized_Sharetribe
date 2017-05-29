@@ -1,21 +1,23 @@
 - padding_image = image_path("testimonials/padding_white.jpg")
 - testimonials_image = image_path("testimonials/testimonials.jpg")
-.content-service-testimonials-container{style: "padding: 30px;"}
-  .row
-    .content-service-testimonials-title
-      = 'Testimonials'
-  .row
-    %img{alt: "", src: padding_image, class: "content_service_padding_image"}
-  .row
-    .content-service-testimonials-text
-      = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some from, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage"
-  .row
-    %table{class: "content-service-testimonials-table"}
-      %tbody{class: "content-service-testimonials-tbody"}
-        %tr{class: "content-service-testimonials-tr", style: "background: #FFFFFF;"}
-          %td{class: "content-service-testimonials-image-td", style: "text-align: right; width: 45%;"}
-            %img{class: "content-service-testimonials-image", alt: "Testimonial", src: testimonials_image}
-          %td{class: "content-service-testimonials-title-td", style: "text-align: left; width: 10%; font-size: 20px; color: #e058d4;"}
-            = "Confidence"
-          %td{class: "content-service-testimonials-name-td", style: "text-align: left; width: 45%;"}
-            = " Michelle L."
+.content-service-testimonials-container
+  .content-service-testimonials-wrapper
+    .row
+      .content-service-testimonials-title
+        = 'Testimonials'
+    .row
+      %img{alt: "", src: padding_image, class: "content_service_padding_image"}
+    .row
+      .content-service-testimonials-text
+        = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some from, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage"
+    .row
+      %table{class: "content-service-testimonials-table"}
+        %tbody{class: "content-service-testimonials-tbody"}
+          %tr{class: "content-service-testimonials-tr", style: "background: #FFFFFF;"}
+            %td{id: "content-service-testimonials-td-image", style: "text-align: right; width: 45%;"}
+              .content-service-testimonials-td-image
+                %img{alt: "Testimonial", src: testimonials_image}
+            %td{class: "content-service-testimonials-title-td", style: "text-align: left; width: 10%; font-size: 20px; color: #e058d4;"}
+              = "Confidence"
+            %td{class: "content-service-testimonials-name-td", style: "text-align: left; width: 45%;"}
+              = " Michelle L."

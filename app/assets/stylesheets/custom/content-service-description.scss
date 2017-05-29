@@ -1,5 +1,13 @@
+@import "mixins/all";
+@import "compass/css3/background-size";
+
 .content-service-description-container {
   text-align: center;
+  background: #eeeeee;
+}
+
+.content-service-description-wrapper {
+  @include wrapper(0);
   background: #eeeeee;
 }
 
