@@ -1,7 +1,14 @@
+@import "mixins/all";
+@import "compass/css3/background-size";
+
 .content-service-testimonials-container {
   text-align: center;
   background: #FFFFFF;
-  padding: 10px;
+}
+
+.content-service-testimonials-wrapper {
+  @include wrapper(0);
+  background: #FFFFFF;
 }
 
 .content-service-testimonials-title {
@@ -33,14 +40,19 @@
 }
 
 .content-service-testimonials-td-image {
+  position: relative;
   text-align: right;
+  padding-bottom: 40%;
 }
 
-.content-service-testimonials-image {
-  width: 120px;
+.content-service-testimonials-td-image img {
+  position: absolute;
+  left: 65%;
+  height: 100%;
   border: 0px solid #FFFFFF;
-  border-radius: 100%;
+  border-radius: 50%;
   vertical-aligen: middle;
+  text-align: right;
   display: inline-block;
 }
 

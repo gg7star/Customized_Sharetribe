@@ -1,13 +1,14 @@
 - padding_image = image_path("testimonials/padding_gray.jpg")
-.content-service-video-container{style: "padding: 30px;"}
-  .row
-    .content-service-video-title
-      = 'Contrary to popular belief, Lorem Ipsum'
-  .row
-    %img{alt: "", src: padding_image, class: "content_service_padding_image"}
-  .row
-    .content-service-video-text
-      = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered'
-  .row{style: "margin-bottom: 0em;"}
-    .intrinsic-container
-      %iframe{type: 'text/html', src: 'https://www.youtube.com/embed/nZjtOEoLF3s?autoplay=0&origin=http://example.com',  align: "center", frameborder: '0'}
+.content-service-video-container
+  .content-service-video-wrapper
+    .row
+      .content-service-video-title
+        = 'Contrary to popular belief, Lorem Ipsum'
+    .row
+      %img{alt: "", src: padding_image, class: "content_service_padding_image"}
+    .row
+      .content-service-video-text
+        = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered'
+    .row{style: "margin-bottom: 0em;"}
+      .intrinsic-container
+        %iframe{type: 'text/html', src: 'https://www.youtube.com/embed/nZjtOEoLF3s?autoplay=0&origin=http://example.com',  align: "center", frameborder: '0'}
