@@ -2,8 +2,26 @@
   .footer-wrapper
     .row
       .col-9
-        %h4{class: "_14"}
+        %h4{class: "footer-copyright-text"}
         = "Copyright Value lessons"
         &copy;
         = Time.now.year
         = ". All Rights Reserved"
+      .col-3
+        .footer-social-icons
+          %ul{:class => "social-icons"}
+            %li
+              %a.social-icon{:href => "https://twitter.com/", :target => "_blank"}
+                %i.fa.fa-twitter
+            %li
+              %a.social-icon{:href => "https://facebook.com/", :target => "_blank"}
+                %i.fa.fa-facebook
+            %li
+              %a.social-icon{:href => "https://facebook.com/", :target => "_blank"}
+                %i.fa.fa-google-plus
+            %li
+              %a.social-icon{:href => "https://wwwlinkedin.com/", :target => "_blank"}
+                %i.fa.fa-linkedin
+            %li
+              %a.social-icon{:href => "https://www.instagram.com/", :target => "_blank"}
+                %i.fa.fa-instagram
