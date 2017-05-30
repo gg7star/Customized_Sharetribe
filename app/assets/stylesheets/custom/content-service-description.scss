@@ -9,6 +9,7 @@
 .content-service-description-wrapper {
   @include wrapper(0);
   background: #eeeeee;
+  padding-bottom: 0.75em;
 }
 
 .content-service-description-title {
@@ -40,6 +41,11 @@
 
 }
 
+.content-service-description-td-container {
+  border: 1px solid #d4cdcd;
+  padding: 5%;
+}
+
 .content-service-description-td-image {
   width: 30px;
 }
@@ -48,9 +54,12 @@
 .content-service-description-td-image-title {
   font-weight: bold;
   color: #606060;
+  font-size: 20px;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
 }
 
 .content-service-description-td-image-text {
   color: #808080;
-  font-size: 13px;
+  font-size: 18px;
 }

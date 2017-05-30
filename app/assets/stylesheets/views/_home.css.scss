@@ -7,10 +7,38 @@
 .home-toolbar {
   @include pie-clearfix;
   margin-bottom: lines(0.5);
-  border-bottom: 1px solid $border;
 
   @include media(tablet) {
     margin-bottom: lines(1);
+  }
+}
+
+.home-toolbar-title {
+
+  // Notice: hard-coded for three buttons
+  width: 33.3%;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  @include media(tablet) {
+    width: auto;
+    min-width: lines(5);
+  }
+}
+
+.home-toolbar-title-desctiption {
+
+  // Notice: hard-coded for three buttons
+  width: 70%;
+  text-align: center;
+  color: #808080;
+  padding-bottom: 1em;
+  font-size: 20px;
+  @include media(tablet) {
+    width: auto;
+    min-width: lines(5);
   }
 }
 
