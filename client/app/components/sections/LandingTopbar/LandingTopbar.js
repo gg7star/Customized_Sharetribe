@@ -6,7 +6,7 @@ import * as urlUtils from '../../../utils/url';
 
 import { t } from '../../../utils/i18n';
 import { routes as routesProp } from '../../../utils/PropTypes';
-import css from './Topbar.css';
+import css from './LandingTopbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
 // elements
@@ -19,7 +19,7 @@ import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 import Menu from '../../composites/Menu/Menu';
 import MenuMobile from '../../composites/MenuMobile/MenuMobile';
-import MenuPriority from '../../composites/MenuPriority/MenuPriority';
+import LandingMenuPriority from '../../composites/LandingMenuPriority/LandingMenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
 const LABEL_TYPE_MENU = 'menu';
@@ -125,7 +125,7 @@ const createQuery = (searchParams, queryString) => {
   }, '');
 };
 
-class Topbar extends Component {
+class LandingTopbar extends Component {
   render() {
     const { location, marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     const { loggedInUsername } = this.props.user || {};
@@ -235,35 +235,13 @@ class Topbar extends Component {
     const oldSearchParams = parseSearchParams(location);
     const searchPlaceholder = this.props.search ? this.props.search.search_placeholder : null;
     const textLogo = this.props.logo.image ? '' : css.textLogo;
-
-    return div({ className: classNames('Topbar', css.topbar) }, [
+    console.log("hasMenuProps: " + hasMenuProps);
+    return div({ className: classNames('LandingTopbar', css.topbar) }, [
       hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
-      this.props.search ?
-        r(SearchBar, {
-          mode: this.props.search.mode,
-          keywordPlaceholder: searchPlaceholder || t('web.topbar.search_placeholder'),
-          locationPlaceholder: searchPlaceholder == null || this.props.search.mode === 'keyword_and_location' ? t('web.topbar.search_location_placeholder') : searchPlaceholder,
-          keywordQuery: oldSearchParams.q,
-          locationQuery: oldSearchParams.lq,
-          customColor: marketplaceColor1,
-          onSubmit: ({ keywordQuery, locationQuery, place, errorStatus }) => {
-            const query = createQuery({
-              q: keywordQuery,
-              lq: locationQuery,
-              lc: placesUtils.coordinates(place),
-              boundingbox: placesUtils.viewport(place),
-              distance_max: placesUtils.maxDistance(place),
-              ls: errorStatus,
-            }, location);
-            const searchUrl = `${this.props.search_path}${query}`;
-            window.location.assign(searchUrl);
-          },
-        }) :
-        div({ className: css.topbarMobileSearchPlaceholder }),
       div({ className: css.topbarMenuSpacer }, hasMenuProps ?
-        r(MenuPriority, menuProps) :
+        r(LandingMenuPriority, menuProps) :
         null),
       hasMultipleLanguages ? r(Menu, {
         ...languageMenuProps,
@@ -297,7 +275,7 @@ class Topbar extends Component {
 const { arrayOf, number, object, shape, string, bool } = PropTypes;
 
 /* eslint-disable react/forbid-prop-types */
-Topbar.propTypes = {
+LandingTopbar.propTypes = {
   logo: object.isRequired,
   search: object,
   search_path: PropTypes.string.isRequired,
@@ -333,4 +311,4 @@ Topbar.propTypes = {
   unReadMessagesCount: PropTypes.number,
 };
 
-export default Topbar;
+export default LandingTopbar;
