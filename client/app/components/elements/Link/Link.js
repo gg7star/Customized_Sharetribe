@@ -9,13 +9,23 @@ import css from './Link.css';
 export default function Link({ href, className, customColor, openInNewTab, children }) {
   const color = customColor || variables['--customColorFallback'];
 
-  return a({
-    className: className || '',
-    classSet: { [css.link]: true },
-    href,
-    style: { color },
-    ...(openInNewTab ? { target: '_blank', rel: 'noreferrer' } : null),
-  }, children);
+  if (children == 'Log in') {
+    return a({
+      className: className || '',
+      classSet: { [css.link]: true },
+      href,
+      style: { color: color, border: '1px solid #FFFFFF', 'border-radius': '30px', 'line-height': '50px', 'height': '55px' },
+      ...(openInNewTab ? { target: '_blank', rel: 'noreferrer' } : null),
+    }, children);
+  }
+  else
+    return a({
+      className: className || '',
+      classSet: { [css.link]: true },
+      href,
+      style: { color },
+      ...(openInNewTab ? { target: '_blank', rel: 'noreferrer' } : null),
+    }, children);
 }
 
 const { string, bool } = PropTypes;

@@ -115,6 +115,8 @@ module.exports = {
   '--customColorFallback': customColorFallback,
   '--customColor2Fallback': customColor2Fallback,
 
+  '--landingCustomColorFallback': '#FFFFFF',
+
   '--paddingButtonVertical': '0.626em',
   '--paddingButtonHorizontal': '1.875em',
 
