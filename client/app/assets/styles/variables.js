@@ -244,6 +244,16 @@ module.exports = {
   '--MenuPriority_letterSpacing': '0.22px',
   '--MenuPriority_paddingVertical': '19px',
 
+  '--LandingMenuPriority_height': '80px',
+  '--LandingMenuPriority_extraSpacingNoUnit': 24,
+  '--LandingMenuPriority_itemSpacing': '32px',
+  '--LandingMenuPriority_itemSpacingNoUnit': 18,
+  '--LandingMenuPriority_textColor': '#FFFFFF',
+  '--LandingMenuPriority_textColorHover': '#FFFFFF',
+  '--LandingMenuPriority_fontSize': '18px',
+  '--LandingMenuPriority_letterSpacing': '1px',
+  '--LandingMenuPriority_paddingVertical': '19px',
+
   // topbar can't control base font-size.
   '--Menu_labelPaddingVertical': '27px',
 

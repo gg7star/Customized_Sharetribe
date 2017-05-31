@@ -27,7 +27,10 @@
         = javascript_include_tag "markerclusterer.js"
       - props = topbar_props
       - cache props do
-        = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
+        - if logged_in? || !(params[:controller] == 'homepage' && params[:action] == 'index')
+          = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
+        - else
+          = react_component("LandingTopbarApp", props: props, prerender: true, id: 'landingtopbar-container')
     - else
       = render partial: 'layouts/global_header', locals: header_props()
 
@@ -61,7 +64,7 @@
           - if display_branding_info?
             = render partial: "layouts/non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"}
       - if params[:controller] == "homepage" && params[:action] == "index"
-        - if params[:view] == nil
+        - if params[:view] == nil && (params[:q] == nil || params[:q] == '')
           %section
             = render partial: "layouts/content_service_video"
 

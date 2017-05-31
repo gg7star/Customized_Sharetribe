@@ -17,17 +17,17 @@
 .priorityLinks {
   overflow: hidden;
   width: 0;
-  height: var(--MenuPriority_height);
+  height: var(--LandingMenuPriority_height);
   position: relative;
 }
 
 .priorityLink {
   display: inline-block;
-  margin-right: var(--MenuPriority_itemSpacing);
-  color: var(--MenuPriority_textColor);
-  letter-spacing: var(--MenuPriority_letterSpacing);
-  font-size: var(--MenuPriority_fontSize);
-  line-height: var(--MenuPriority_height);
+  margin-right: var(--LandingMenuPriority_itemSpacing);
+  color: var(--LandingMenuPriority_textColor);
+  letter-spacing: var(--LandingMenuPriority_letterSpacing);
+  font-size: var(--LandingMenuPriority_fontSize);
+  line-height: var(--LandingMenuPriority_height);
   white-space: nowrap;
 
   /*display: inline-block;
@@ -40,7 +40,7 @@
 
   &:focus,
   &:hover {
-    color: var(--MenuPriority_textColorHover);
+    color: var(--LandingMenuPriority_textColorHover);
     outline: none;
   }
 }
