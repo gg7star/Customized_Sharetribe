@@ -27,7 +27,7 @@ const LABEL_TYPE_DROPDOWN = 'dropdown';
 const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
 const SEARCH_PARAMS = ['q', 'lq'];
 const DEFAULT_CONTEXT = {
-  marketplace_color1: styleVariables['--customColorFallback'],
+  marketplace_color1: styleVariables['--landingCustomColorFallback'],
   loggedInUsername: null,
 };
 
@@ -44,7 +44,7 @@ const profileActions = function profileActions(routes, username) {
 };
 
 const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, notificationCount, routes) => {
-  const color = customColor || styleVariables['--customColorFallback'];
+  const color = customColor || styleVariables['--landingCustomColorFallback'];
   const actions = {
     inboxAction: () => false,
     profileAction: () => false,
@@ -257,7 +257,7 @@ class LandingTopbar extends Component {
         r(LoginLinks, {
           loginUrl: loginRoute,
           signupUrl: signupRoute,
-          customColor: marketplaceColor1,
+          customColor: styleVariables['--landingCustomColorFallback'],
           className: css.topbarLinks,
         }),
       this.props.newListingButton ?
