@@ -6,8 +6,11 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background: var(--colorBackground);
-  border-bottom: 1px solid var(--Topbar_borderColor);
+  background: transparent;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+
   font-size: var(--Topbar_fontSize);
   font-family: var(--Topbar_fontFamily);
 

@@ -30,6 +30,14 @@
   line-height: var(--MenuPriority_height);
   white-space: nowrap;
 
+  /*display: inline-block;
+  margin-right: 32px;
+  color: #FFFFFF;
+  letter-spacing: 1.4px;
+  font-size: 14px;
+  line-height: 80px;
+  white-space: nowrap;*/
+
   &:focus,
   &:hover {
     color: var(--MenuPriority_textColorHover);

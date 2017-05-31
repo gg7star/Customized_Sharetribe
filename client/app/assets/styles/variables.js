@@ -234,14 +234,14 @@ module.exports = {
   '--Menu_iconPadding': pxToEms(5, 14),
   '--Menu_zIndex': zIndexMinimum,
 
-  '--MenuPriority_height': '60px',
+  '--MenuPriority_height': '80px',
   '--MenuPriority_extraSpacingNoUnit': 24,
-  '--MenuPriority_itemSpacing': '18px',
+  '--MenuPriority_itemSpacing': '32px',
   '--MenuPriority_itemSpacingNoUnit': 18,
-  '--MenuPriority_textColor': textColor,
+  '--MenuPriority_textColor': '#FFFFFF',
   '--MenuPriority_textColorHover': textColorFocus,
-  '--MenuPriority_fontSize': fontSize,
-  '--MenuPriority_letterSpacing': '0.22px',
+  '--MenuPriority_fontSize': '18px',
+  '--MenuPriority_letterSpacing': '1.4px',
   '--MenuPriority_paddingVertical': '19px',
 
   // topbar can't control base font-size.

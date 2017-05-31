@@ -20,7 +20,7 @@
   - if @big_cover_photo
     %h1.marketplace-lander-content-title= community_slogan.html_safe
     %p.marketplace-lander-content-description= community_description.html_safe
-    - unless (is_homepage && !@current_community.private? && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+    -# - unless (is_homepage && !@current_community.private? && FeatureFlagHelper.feature_enabled?(:topbar_v1))
       .search-form
         - if @current_community.private?
           %a.inline-big-button{href: sign_up_path}
@@ -37,6 +37,12 @@
         = render partial: "location_bar"
       - else
         = render partial: "search_bar"
+
+  .search-form
+    - if(main_search == :location)
+      = render partial: "location_bar"
+    - else
+      = render partial: "search_bar"
 
 - content_for(:head) do
   - if seo_pagination_links[:prev].present?

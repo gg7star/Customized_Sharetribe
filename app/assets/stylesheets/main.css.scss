@@ -1947,6 +1947,9 @@ figure.fluidratio {
   position: relative;
 
   figure.marketplace-cover {
+    // margin-top: -80px;
+    // z-index: -1;
+    // height: 400px;
     background-image: url(image-path($cover-photo-url));
     height: auto;
     background-size: cover;
@@ -1981,8 +1984,9 @@ figure.fluidratio {
   }
 
   .marketplace-lander-content {
-    padding: 5em 1em;
+    padding: 10em 1em;
     text-align: center;
+    height: 480px;
   }
 
   .marketplace-lander-content-title {
