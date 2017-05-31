@@ -31,8 +31,9 @@ $elementSpacing: lines(0.5);
   display: block;
   background: #674FA7;
   color: #FFFFFF;
-  padding: 0em $elementSpacing;
-  height: $footerHeight;
+  padding-bottom: 0.2em;
+  // padding: 0em $elementSpacing;
+  // height: $footerHeight;
 }
 
 .footer-copyright-text {
