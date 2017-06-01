@@ -2,7 +2,7 @@
 
 %body
 
-  #sidewinder-wrapper
+  #sidewinder-wrapper.side-winder-wrapper
 
     -# Render railsContext here before any react component gets rendered
     = prepend_render_rails_context("")
@@ -73,9 +73,8 @@
 
           %section
             = render partial: "layouts/content_service_testimonials"
-
-        %section
-          = render :partial => 'layouts/footer'
+      - if (params[:controller] =~ /admin\//) == nil
+        = render :partial => 'layouts/footer'
     -#
       This is not pretty, but works.
       On homepage, we want to wrap the whole page content (search bar and the "real" content) to a form, so that
@@ -98,6 +97,7 @@
 
     -# load Facebook SDK for the whole page
     = render :partial => "layouts/facebook_sdk"
+
 
     -# Initialize global I18n variable and load translations there
     :javascript

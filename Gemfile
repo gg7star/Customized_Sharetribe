@@ -199,4 +199,4 @@ gem 'daemons', '~> 1.2.4'
 # additional gem for video player
 gem 'video_player'
 
-gem  'font-awesome-rails'
+gem 'font-awesome-rails'

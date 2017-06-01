@@ -20,6 +20,9 @@ $textLineHeight: $footerHeight - em(3);
 
 /* Default spacing between footer bar elements */
 $elementSpacing: lines(0.5);
+.side-winder-wrapper {
+  padding-bottom: 6em;
+}
 
 .footer-wrapper {
   @include wrapper(0);
@@ -32,6 +35,9 @@ $elementSpacing: lines(0.5);
   background: #674FA7;
   color: #FFFFFF;
   padding-bottom: 0.2em;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
   // padding: 0em $elementSpacing;
   // height: $footerHeight;
 }
