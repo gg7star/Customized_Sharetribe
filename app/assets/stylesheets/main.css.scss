@@ -1391,6 +1391,29 @@ $noscript-height: lines(4);
   @include big-type;
 }
 
+.plan-description {
+  font-size: 0.9em;
+  color: gray;
+}
+.plan-basic-label {
+  font-size: 1em;
+  padding: 0em;
+}
+
+.plan-basic-per {
+  font-size: 0.9em;
+  padding: 0.5em 0.5em;
+  display: inline;
+}
+
+.plan-basic-unit {
+  padding: 0.5em 0em;
+  display: inline;
+  font-size: 1.1em;
+  line-height: 1.09091em;
+  font-weight: 600;
+}
+
 .quantity-field {
   max-width: lines(7);
 }
