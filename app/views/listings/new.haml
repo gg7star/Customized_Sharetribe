@@ -52,6 +52,10 @@
 
     - if shapes.size > 1
       .option-group{:name => "listing_shape"}
+        -# .a.select.option.hidden{:data => {:id => 4}}
+        -#   = "Please select"
+        -# .a.select.option.hidden{:data => {:id => 5}}
+        -#   = render partial: "layouts/info_text", locals: {text: "Excluding travel expenses and other expenses support *"}
         - shapes.each do |value|
           %a.select.option.hidden{:data => {:id => value[:id]}}
             .link-text= t(value[:name_tr_key])

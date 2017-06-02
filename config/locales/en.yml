@@ -1438,6 +1438,8 @@ en:
       location:
         location: Location
       price:
+        compensation: Compensation
+        compensation_description: "Please tell us what the study is paying"
         price: Price
         per: per
         per_day: "per day"
@@ -1540,7 +1542,7 @@ en:
       selected_transaction_type: "Listing type: %{transaction_type}"
       select_category: "Select category"
       select_subcategory: "Select subcategory"
-      select_transaction_type: "Select listing type"
+      select_transaction_type: "Listing type"
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
       contact_admin_link_text: "contact the administrator"
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
