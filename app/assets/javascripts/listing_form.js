@@ -31,6 +31,19 @@ window.ST = window.ST || {};
       display_option_group("subcategory", selected_attributes, attribute_array);
     } else if (should_show_menu_for("listing_shape", selected_attributes, attribute_array)) {
       title = listing_form_menu_titles["listing_shape"];
+
+      console.log('title: ', title);
+      var description = '<div style="font-size: 0.825em; padding-top: 1em; color: gray;"> Please select </div>';
+      description += '<div class="info-text-container">'
+      description += '  <div class="info-text-icon">';
+      description += '    <i class="icon-info-sign">';
+      description += '    </i>';
+      description += '  </div>';
+      description += '  <div class="info-text-content" style="font-size: 0.8125em;">';
+      description += 'Excluding travel expenses and other expenses support *';
+      description += '  </div>';
+      description += '</div>';
+      title += description;
       display_option_group("listing_shape", selected_attributes, attribute_array);
     } else {
       shouldLoadForm = true;
@@ -186,13 +199,16 @@ window.ST = window.ST || {};
   function display_option_group(group_type, selected_attributes, attribute_array) {
     $('.option-group[name=' + group_type + ']').children().each(function() {
       if (group_type == "category") {
+        console.log('remove cateogry hidden option: ', this);
         $(this).removeClass('hidden');
       } else if (group_type == "subcategory") {
         if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
+          console.log('remove subcategory hidden option', this);
           $(this).removeClass('hidden');
         }
       } else if (group_type == "listing_shape") {
         if (has_listing_shape(selected_attributes, $(this).attr('data-id'), attribute_array)) {
+          console.log('remove listing_shape hidden option', this);
           $(this).removeClass('hidden');
         }
       }
@@ -274,6 +290,8 @@ window.ST = window.ST || {};
 
   // Initialize the listing type & category selection part of the form
   module.initialize_new_listing_form_selectors = function(locale, attribute_array, listing_form_menu_titles) {
+    console.log('attribute_array: ', attribute_array);
+    console.log('listing_form_menu_titles:', listing_form_menu_titles);
     var ordered_attributes = ["category", "subcategory", "listing_shape"];
     var selected_attributes = selectedAttributesFromQueryParams(window.location.search);
 
