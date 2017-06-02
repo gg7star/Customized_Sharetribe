@@ -1,0 +1,7 @@
+.price-container
+  - if shape[:price_enabled]
+    = form.label :plan,  t(".plan")
+    = form.label :plan_description, t(".plan_description"), :class => "plan-description"
+    = render partial: "layouts/info_text", locals: {text: t(".plan_info_description")}
+    = form.text_field :basic_plan, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.basic_plan ? @listing.basic_plan.to_s: 0)
+    = render partial: "listings/form/price_currency", locals: {form: form}

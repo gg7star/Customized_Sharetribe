@@ -1439,7 +1439,15 @@ en:
         location: Location
       price:
         compensation: Compensation
-        compensation_description: "Please tell us what the study is paying"
+        compensation_description: "Please tell us what the study is paying."
+        plan: Plan
+        plan_description: "Please select a plan;invoice only applies per successfull lead."
+        plan_info_description: "If an account manager is required you will be contacted shortly."
+        plan_basic_listings: "Basic listing:"
+        plan_featured_listings: "Featured listing:"
+        plan_urgent_listings: "Ugent listing:"
+        plan_account_manager_required: "Account Manager Required:"
+        plan_lead: "Lead"
         price: Price
         per: per
         per_day: "per day"
