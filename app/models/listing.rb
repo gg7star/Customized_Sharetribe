@@ -51,6 +51,7 @@
 #  featured_listings_price         :float(24)
 #  urgent_listings_price           :float(24)
 #  plan                            :string(255)
+#  account_manager_required        :boolean
 #
 # Indexes
 #
