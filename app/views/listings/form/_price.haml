@@ -34,6 +34,9 @@
     = render partial: "layouts/info_text", locals: {text: t(".plan_info_description")}
     = form.select :plan, [basic_listing_value, featured_listing_value, urgent_listing_value], { :include_blank => "- Please Select -" }, :required => true
 
+    .checkbox-container
+      = form.check_box :account_manager_required
+      = form.label :account_manager_required, 'Account manager Required'
 
     -# .row
     -#   .col-4{:style => "padding: 0; margin: 0;"}
