@@ -36,42 +36,7 @@
 
     .checkbox-container
       = form.check_box :account_manager_required
-      = form.label :account_manager_required, 'Account manager Required'
-
-    -# .row
-    -#   .col-4{:style => "padding: 0; margin: 0;"}
-    -#     = label_tag "plan_basic_listings", t(".plan_basic_listings"), :class => "plan-basic-label"
-    -#   .col-8{:style => "padding: 0em;"}
-    -#     = render partial: "listings/form/price_currency", locals: {form: form}
-    -#     = "199"
-    -#     .plan-basic-per
-    -#       = t(".per")
-    -#     .plan-basic-unit
-    -#       = t(".plan_lead")
-    -#
-    -# -# Add featured plan
-    -# .row
-    -#   .col-4{:style => "padding: 0; margin: 0;"}
-    -#     = label_tag "plan_featured_listings", t(".plan_featured_listings"), :class => "plan-basic-label"
-    -#   .col-8{:style => "padding: 0em;"}
-    -#     = render partial: "listings/form/price_currency", locals: {form: form}
-    -#     = form.text_field :featured_listings_price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.featured_listings_price ? @listing.featured_listings_price.to_s: 0)
-    -#     .plan-basic-per
-    -#       = t(".per")
-    -#     .plan-basic-unit
-    -#       = t(".plan_lead")
-    -#
-    -# -# Add featured plan
-    -# .row
-    -#   .col-4{:style => "padding: 0; margin: 0;"}
-    -#     = label_tag "plan_Urgent_listings", t(".plan_urgent_listings"), :class => "plan-basic-label"
-    -#   .col-8{:style => "padding: 0em;"}
-    -#     = render partial: "listings/form/price_currency", locals: {form: form}
-    -#     = form.text_field :urgent_listings_price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.urgent_listings_price ? @listing.urgent_listings_price.to_s: 0)
-    -#     .plan-basic-per
-    -#       = t(".per")
-    -#     .plan-basic-unit
-    -#       = t(".plan_lead")
+      = form.label :account_manager_required, t.(".plan_account_manager_required")
 
     %small
       - paypal_fee_info_link = capture do

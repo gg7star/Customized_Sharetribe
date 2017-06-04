@@ -1841,6 +1841,8 @@ CREATE TABLE `transactions` (
   `availability` varchar(32) DEFAULT 'none',
   `booking_uuid` binary(16) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
+  `paid` tinyint(1) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`) USING BTREE,
   KEY `index_transactions_on_conversation_id` (`conversation_id`) USING BTREE,
@@ -1862,7 +1864,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-04 16:00:02
+-- Dump completed on 2017-06-04 17:32:10
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3522,4 +3524,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170613153971');
 INSERT INTO schema_migrations (version) VALUES ('20170613153972');
 
 INSERT INTO schema_migrations (version) VALUES ('20170613153973');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153974');
 

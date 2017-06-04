@@ -1,0 +1,58 @@
+%table#admin_transactions
+  %thead
+    %tr
+      %th= render partial: "layouts/sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
+      %th=t("admin.communities.transactions.headers.status")
+      %th=t("admin.communities.transactions.headers.sum")
+      %th= render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
+      %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
+      %th=t("admin.communities.transactions.headers.initiated_by")
+      %th=t("admin.communities.transactions.headers.other_party")
+      %th=t("admin.communities.transactions.headers.plan_selected")
+
+  %tbody
+    %tr
+      - listing_title = @conversation[:listing_title] || t("admin.communities.transactions.not_available")
+      %td=Maybe(@conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_title, @conversation[:listing_url]) }.or_else(listing_title)
+      %td
+        = link_to person_transaction_path(person_id: @current_user.id, id: @conversation[:id]) do
+          = t("admin.communities.transactions.status.#{@conversation[:status]}")
+      %td=@conversation[:payment_total] ? MoneyViewUtils.to_humanized(@conversation[:payment_total]) : ""
+      %td=l(@conversation[:created_at], format: :short_date)
+      %td=l(@conversation[:last_activity_at], format: :short_date)
+      %td=Maybe(@conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+      %td=Maybe(@conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+      - listing_plan = @conversation[:conversation][:listing][:plan]  || t("admin.communities.transactions.not_available")
+      %td=Maybe(@conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_plan, "#{@conversation[:listing_url]}/edit") }.or_else(listing_plan)
+
+- transaction =  @conversation[:__model]
+= form_tag url_for(:controller => :community_transactions, action: :update, :id => @conversation[:id]), :method => :put do
+  .row
+    .col-12
+      .checkbox-container
+        = check_box_tag :paid
+        = label_tag :paid, t("admin.communities.transactions.headers.paid")
+
+  = label_tag :comment, t("admin.communities.transactions.headers.comment")
+  = text_area_tag :comment, transaction[:comment]
+  .add-custom-field-buttons
+    .inline-button-container
+      = button_tag t("admin.custom_fields.index.save")
+    .inline-button-container
+      %a{:href => admin_community_transactions_path, :class => "cancel-button"}
+        .content
+          = t("admin.custom_fields.index.cancel")
+  -# = form_tag update_expiration_admin_custom_fields_path, method: :put do
+  -# .row
+  -#   .col-12
+  -#     .checkbox-container
+  -#       = check_box_tag :listing_expiration_enabled, :enabled, listing_expiration_enabled
+  -#       = label_tag :listing_expiration_enabled, t(".enable")
+
+    -# .add-custom-field-buttons
+    -#   .inline-button-container
+    -#     = button_tag t("admin.custom_fields.index.save")
+    -#   .inline-button-container
+    -#     %a{:href => admin_custom_fields_path, :class => "cancel-button"}
+    -#       .content
+    -#         = t("admin.custom_fields.index.cancel")

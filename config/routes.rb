@@ -256,7 +256,7 @@ Kassi::Application.routes.draw do
           get "getting_started_guide/invitation",             to: redirect("/admin/getting_started_guide/invitation")
 
         end
-        resources :transactions, controller: :community_transactions, only: :index
+        resources :transactions, controller: :community_transactions , only: [:index, :edit, :update]
         resources :emails
         resources :community_memberships do
           member do
@@ -443,7 +443,7 @@ Kassi::Application.routes.draw do
             get :billing_agreement_cancel
           end
         end
-        resources :transactions, only: [:show, :new, :create]
+        resources :transactions, only: [:show, :new, :create, :update]
         resource :settings do
           member do
             get :account
