@@ -1,0 +1,4 @@
+- value = custom_field_value ? custom_field_value.text_value : ""
+- puts'\n\n value = '
+- puts value[0]
+= text_area_tag "custom_fields[#{custom_field.id}]", value[0], :class => (custom_field.required? ? "required" : "")

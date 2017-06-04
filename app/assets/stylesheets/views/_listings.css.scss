@@ -51,6 +51,19 @@
   margin-right: lines(0.25);
 }
 
+.listing-basic-price-title {
+  font-size: 1em;
+  color: $light-body;
+  display: block;
+  float: left;
+  margin-right: lines(0.25);
+}
+
+.listing-basic-price-amount {
+
+}
+
+
 .listing-price-quantity {
   vertical-align: top;
   $hugeTypeLineHeight: lines(2);

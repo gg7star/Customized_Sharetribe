@@ -286,6 +286,10 @@ class ListingsController < ApplicationController
   end
 
   def create
+
+    puts "\n\n listing create params = "
+    puts params
+
     params[:listing].delete("origin_loc_attributes") if params[:listing][:origin_loc_attributes][:address].blank?
 
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
@@ -334,6 +338,8 @@ class ListingsController < ApplicationController
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     @listing = Listing.new(listing_params)
+    puts "\n\n @listing = "
+    puts @listing
 
     ActiveRecord::Base.transaction do
       @listing.author = @current_user

@@ -24,6 +24,9 @@
         %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
         %th=t("admin.communities.transactions.headers.initiated_by")
         %th=t("admin.communities.transactions.headers.other_party")
+        %th=t("admin.communities.transactions.headers.plan_selected")
+        %th=t("admin.communities.transactions.headers.paid")
+        %th=t("admin.communities.transactions.headers.comment")
 
     %tbody
       - conversations.each do |conversation|
@@ -38,6 +41,10 @@
           %td=l(conversation[:last_activity_at], format: :short_date)
           %td=Maybe(conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
           %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+          - listing_plan = conversation[:conversation][:listing][:plan]  || t("admin.communities.transactions.not_available")
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_plan, "#{conversation[:listing_url]}/edit") }.or_else(listing_plan)
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], "-", "#") }.or_else("-")
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], "-", "#") }.or_else("-")
   .row
     .col-12
       = will_paginate conversations
