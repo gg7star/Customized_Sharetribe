@@ -1449,7 +1449,7 @@ en:
         plan_basic_listings: "Basic listing:"
         plan_featured_listings: "Featured listing:"
         plan_urgent_listings: "Ugent listing:"
-        plan_account_manager_required: "Account Manager Required:"
+        plan_account_manager_required: "Account Manager Required"
         plan_lead: "Lead"
         price: Price
         per: per
