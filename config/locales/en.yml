@@ -309,6 +309,9 @@ en:
           last_activity: "Latest activity"
           initiated_by: Starter
           other_party: "Other party"
+          plan_selected: "Plan selected"
+          paid: Paid
+          comment: Comment
         status:
           free: Conversation
           pending: Pending

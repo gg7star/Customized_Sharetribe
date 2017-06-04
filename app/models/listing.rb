@@ -47,6 +47,10 @@
 #  shipping_price_cents            :integer
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
+#  basic_listings_price            :float(24)
+#  featured_listings_price         :float(24)
+#  urgent_listings_price           :float(24)
+#  plan                            :string(255)
 #
 # Indexes
 #

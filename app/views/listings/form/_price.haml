@@ -21,45 +21,54 @@
           %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
             = unit_option[:display]
 
+
     -# Add plan
+
+    - basic_listing_value = "#{t(".plan_basic_listings")} #{Money.new(1, @current_community.currency).symbol} 199 #{t(".per")} #{t(".plan_lead")}"
+    - featured_listing_value = "#{t(".plan_featured_listings")} #{Money.new(1, @current_community.currency).symbol} 299 #{t(".per")} #{t(".plan_lead")}"
+    - urgent_listing_value = "#{t(".plan_urgent_listings")} #{Money.new(1, @current_community.currency).symbol} 399 #{t(".per")} #{t(".plan_lead")}"
+
     = form.label :plan,  t(".plan")
     -# Add basic plan
     = form.label :plan_description, t(".plan_description"), :class => "plan-description"
     = render partial: "layouts/info_text", locals: {text: t(".plan_info_description")}
-    .row
-      .col-4{:style => "padding: 0; margin: 0;"}
-        = label_tag "plan_basic_listings", t(".plan_basic_listings"), :class => "plan-basic-label"
-      .col-8{:style => "padding: 0em;"}
-        = render partial: "listings/form/price_currency", locals: {form: form}
-        = form.text_field :basic_plan, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => ""
-        .plan-basic-per
-          = t(".per")
-        .plan-basic-unit
-          = t(".plan_lead")
+    = form.select :plan, [basic_listing_value, featured_listing_value, urgent_listing_value], { :include_blank => "- Please Select -" }, :required => true
 
-    -# Add featured plan
-    .row
-      .col-4{:style => "padding: 0; margin: 0;"}
-        = label_tag "plan_featured_listings", t(".plan_featured_listings"), :class => "plan-basic-label"
-      .col-8{:style => "padding: 0em;"}
-        = render partial: "listings/form/price_currency", locals: {form: form}
-        = form.text_field :fetured_plan, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => ""
-        .plan-basic-per
-          = t(".per")
-        .plan-basic-unit
-          = t(".plan_lead")
 
-    -# Add featured plan
-    .row
-      .col-4{:style => "padding: 0; margin: 0;"}
-        = label_tag "plan_Urgent_listings", t(".plan_urgent_listings"), :class => "plan-basic-label"
-      .col-8{:style => "padding: 0em;"}
-        = render partial: "listings/form/price_currency", locals: {form: form}
-        = form.text_field :urgent_plan, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => ""
-        .plan-basic-per
-          = t(".per")
-        .plan-basic-unit
-          = t(".plan_lead")
+    -# .row
+    -#   .col-4{:style => "padding: 0; margin: 0;"}
+    -#     = label_tag "plan_basic_listings", t(".plan_basic_listings"), :class => "plan-basic-label"
+    -#   .col-8{:style => "padding: 0em;"}
+    -#     = render partial: "listings/form/price_currency", locals: {form: form}
+    -#     = "199"
+    -#     .plan-basic-per
+    -#       = t(".per")
+    -#     .plan-basic-unit
+    -#       = t(".plan_lead")
+    -#
+    -# -# Add featured plan
+    -# .row
+    -#   .col-4{:style => "padding: 0; margin: 0;"}
+    -#     = label_tag "plan_featured_listings", t(".plan_featured_listings"), :class => "plan-basic-label"
+    -#   .col-8{:style => "padding: 0em;"}
+    -#     = render partial: "listings/form/price_currency", locals: {form: form}
+    -#     = form.text_field :featured_listings_price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.featured_listings_price ? @listing.featured_listings_price.to_s: 0)
+    -#     .plan-basic-per
+    -#       = t(".per")
+    -#     .plan-basic-unit
+    -#       = t(".plan_lead")
+    -#
+    -# -# Add featured plan
+    -# .row
+    -#   .col-4{:style => "padding: 0; margin: 0;"}
+    -#     = label_tag "plan_Urgent_listings", t(".plan_urgent_listings"), :class => "plan-basic-label"
+    -#   .col-8{:style => "padding: 0em;"}
+    -#     = render partial: "listings/form/price_currency", locals: {form: form}
+    -#     = form.text_field :urgent_listings_price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.urgent_listings_price ? @listing.urgent_listings_price.to_s: 0)
+    -#     .plan-basic-per
+    -#       = t(".per")
+    -#     .plan-basic-unit
+    -#       = t(".plan_lead")
 
     %small
       - paypal_fee_info_link = capture do

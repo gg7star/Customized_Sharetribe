@@ -137,6 +137,23 @@
               %span.listing-price-quantity
                 = text
 
+    - if @is_current_community_admin == true || @listing.author_id == @current_user.id
+      .row
+        -# - if @listing.basic_listings_price
+        -#   .col-12
+        -#     .listing-basic-price-title
+        -#       %b= t("listings.form.price.plan_basic_listings")
+        -#     .listing-basic-price-amount
+        -#       %span= MoneyViewUtils.to_humanized(@listing.basic_listings_price)
+        -#     .listing-basic-price-per
+        -#       = t("listings.form.price.per")
+        -#     .listing-basic-price-unit
+        -#       = t("listings.form.price.plan_lead")
+        - if @listing.plan
+          .col-12
+            %b= @listing.plan
+
+
     .row-with-divider
       .col-12
         #listing-message-links
