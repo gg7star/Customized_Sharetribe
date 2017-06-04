@@ -30,7 +30,7 @@
   .row
     .col-12
       .checkbox-container
-        = check_box_tag :paid
+        = check_box_tag :paid, true, transaction[:paid]
         = label_tag :paid, t("admin.communities.transactions.headers.paid")
 
   = label_tag :comment, t("admin.communities.transactions.headers.comment")
