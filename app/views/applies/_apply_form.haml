@@ -42,9 +42,8 @@
   -# Terms
   .outer-checkbox-container
     .checkbox-container
-      - unless @skip_accepted_checkbox
-        %input{:type => "checkbox", :id => "accepted", :name => "apply[accepted]"}
-        = f.label :accepted, 'I have read and agree to', :class => "checkbox"
+      = f.check_box :accepted, :required => true
+      = f.label :accepted, 'I have read and agree to'
 
   = f.hidden_field :accepted, :value => apply.accepted
 
