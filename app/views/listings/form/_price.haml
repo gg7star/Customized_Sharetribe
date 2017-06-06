@@ -27,16 +27,17 @@
     - basic_listing_value = "#{t(".plan_basic_listings")} #{Money.new(1, @current_community.currency).symbol} 199 #{t(".per")} #{t(".plan_lead")}"
     - featured_listing_value = "#{t(".plan_featured_listings")} #{Money.new(1, @current_community.currency).symbol} 299 #{t(".per")} #{t(".plan_lead")}"
     - urgent_listing_value = "#{t(".plan_urgent_listings")} #{Money.new(1, @current_community.currency).symbol} 399 #{t(".per")} #{t(".plan_lead")}"
+    - account_manager_required_value = "Account Manager Required"
 
     = form.label :plan,  t(".plan")
     -# Add basic plan
     = form.label :plan_description, t(".plan_description"), :class => "plan-description"
     = render partial: "layouts/info_text", locals: {text: t(".plan_info_description")}
-    = form.select :plan, [basic_listing_value, featured_listing_value, urgent_listing_value], { :include_blank => "- Please Select -" }, :required => true
+    = form.select :plan, [basic_listing_value, featured_listing_value, urgent_listing_value, account_manager_required_value], { :include_blank => "- Please Select -" }, :required => true
 
-    .checkbox-container
-      = form.check_box :account_manager_required
-      = form.label :account_manager_required, "Account Manager Required"
+    -# .checkbox-container
+    -#  = form.check_box :account_manager_required
+    -#  = form.label :account_manager_required, "Account Manager Required"
 
     %small
       - paypal_fee_info_link = capture do
