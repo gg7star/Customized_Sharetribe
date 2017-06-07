@@ -130,17 +130,52 @@
   }
 }
 
+
+.home-list-view-title {
+
+  // Notice: hard-coded for three buttons
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+
+  @include media(tablet) {
+    width: auto;
+    min-width: lines(5);
+  }
+}
+
+.home-list-view-title-desctiption {
+
+  // Notice: hard-coded for three buttons
+  width: 100%;
+  text-align: center;
+  color: #808080;
+  padding-bottom: 3em;
+  font-size: 20px;
+  @include media(tablet) {
+    width: auto;
+    min-width: lines(5);
+  }
+}
+
 .home-list-item {
   position: relative;
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
-  min-height: lines(3.5);
+  min-height: lines(7.5);
 
   @include media(tablet) {
     padding-bottom: lines(1);
     margin-bottom: lines(1);
-    height: lines(6);
+    height: lines(7.5);
   }
+}
+
+.home-list-item-description {
+  min-height: 5.75em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 $image-width: lines(7.5); // FIXME

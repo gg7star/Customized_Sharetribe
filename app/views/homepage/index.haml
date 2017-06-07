@@ -5,10 +5,10 @@
   = "without-text"
 
 - content_for :extra_javascript do
-  - # maps.google can't be loaded twice
+  -# maps.google can't be loaded twice
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "&key=#{maps_key}" : ""
-  - # Topbar adds its own maps script, otherwise add it if location search enabled or map is visible
+  -# Topbar adds its own maps script, otherwise add it if location search enabled or map is visible
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) && (main_search != :keyword || @view_type.eql?("map"))
   - if(needs_maps)
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
@@ -65,32 +65,25 @@
         = "Explore Clinical Trials"
       .home-toolbar-title-desctiption
         = "Find Clinical Trials near you or explore popular locations"
+
     - else
+      -# Remove filter button for mobile device
       -# - if listing_shape_menu_enabled || @category_menu_enabled
       -# .home-toolbar-show-filters-button-container
       -#   .home-toolbar-show-filters-button#home-toolbar-show-filters
       -#     = t(".filter")
 
-
       - if listing_shape_menu_enabled || @category_menu_enabled
         -# .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
         - if listing_shape_menu_enabled
           .toggle-container.home-toolbar-toggle-container
-            .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
-              .toggle-header-container
-                .toggle-header
-                  - if selected_shape
-                    = t(selected_shape[:name_tr_key])
-                  - else
-                    = t("homepage.filters.all_listing_types")
-
-                = icon_tag("dropdown", ["icon-dropdown"])
-
-            .home-toolbar-share-type-menu.toggle-menu.hidden
+            -# changed from dropdown to text
+            %b
               = link_to t("homepage.filters.all_listing_types"), search_path(search_params.merge({transaction_type: "all"}))
-              - shapes.each do |shape|
-                = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "toggle-menu-subitem" do
-                  = t(shape[:name_tr_key])
+            = ": "
+            - shapes.each do |shape|
+              = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "toggle-menu-subitem" do
+                = t(shape[:name_tr_key])
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet
@@ -156,6 +149,15 @@
                 .home-fluid-thumbnail-grid
                   = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
             - else
+              .home-list-view-title
+                - search_condition = params[:q] == nil ? "" : params[:q]
+                - search_condition += params[:category] == nil || params[:category] == 'all' ? " > All cateories " : " > #{params[:category]}"
+                - search_condition += params[:transaction_type] == nil || params[:transaction_type] == 'all' ? " > All listing types" : " > #{params[:transaction_type]}"
+
+                = "Explore #{search_condition}"
+              .home-list-view-title-desctiption
+                = "To find a match use advance search"
+
               .home-listings
                 - if (location_search_in_use)
                   = render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
