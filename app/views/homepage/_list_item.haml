@@ -11,10 +11,7 @@
       %h2.home-list-title
         = link_to listing_path(listing.url) do
           = listing.title
-          - if @current_community.show_category_in_listing_list
-            %a.home-share-type-link{:href => search_path(:transaction_type => shape_name_map[listing.listing_shape_id], :view => :list)}
-              = icon_tag(listing.icon_name, ["icon-fix"])
-              = shape_name(listing)
+
 
       -# remove style for beta
 
@@ -36,9 +33,18 @@
 
       -# add description in content of listing
       %row
-        .col-4
-          = listing.created_at
-        .col-8
+        .col-2{:style => "padding-top: 0.8em;"}
+          - listing.created_at
+          - date = DateTime.parse("2011-05-19 10:30:14")
+          - formatted_date = date.strftime('%b %d, %Y')
+          = formatted_date
+        .col-3{:style=> "padding-top: 0.8em;"}
+          - listing_category_title = Category.find(listing.category_id).url
+          = truncate(listing_category_title, :length => 20)
+        .col-3{:style => "padding-top: 0.8em;"}
+          = icon_tag(listing.icon_name, ["icon-fix"])
+          = truncate(shape_name(listing), :length => 20)
+        .col-3{:style => "padding-top: 0.8em;"}
           - price_text = ""
           - if listing.price
             -# .home-list-price-value-mobile
@@ -65,16 +71,16 @@
       -# .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
 
 
-      .home-list-details-right
-        .home-list-price
-          - if listing.price
-            -# .home-list-item-price-value
-            = "Compensation:  " + "#{MoneyViewUtils.to_humanized(listing.price)}"
-            -#- price_text = nil
-            - if listing.quantity.present?
-              - price_text = t("listings.form.price.per") + " " + listing.quantity
-            - elsif listing.unit_type
-              - price_text = price_quantity_per_unit(listing)
+    -#  .home-list-details-right
+    -#    .home-list-price
+    -#      - if listing.price
+    -#       -# .home-list-item-price-value
+    -#        = "Compensation:  " + "#{MoneyViewUtils.to_humanized(listing.price)}"
+    -#        -#- price_text = nil
+    -#        - if listing.quantity.present?
+    -#         - price_text = t("listings.form.price.per") + " " + listing.quantity
+    -#        - elsif listing.unit_type
+    -#          - price_text = price_quantity_per_unit(listing)
 
             -#- if price_text.present?
             -#  .home-list-price-quantity{:title => price_text}

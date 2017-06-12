@@ -260,7 +260,9 @@ $home-list-avatar-padding: lines(0.25);
 .browsing-list-item-title {
   padding-bottom: 0;
 }
-
+.home-list-title {
+  padding-bottom: 0;  
+}
 .home-share-type-link,
 .browsing-list-item-share-type-link {
   @include share-type-link;
