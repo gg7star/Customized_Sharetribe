@@ -129,6 +129,8 @@ gem "i18n-js",
 # A store scoped to the request object for caching
 gem "request_store", "~> 1.3"
 
+gem 'rails4-autocomplete'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'
