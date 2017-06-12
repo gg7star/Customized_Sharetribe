@@ -34,39 +34,54 @@
       -# add description in content of listing
       %row
         .col-2{:style => "padding-top: 0.8em;"}
-          - listing.created_at
-          - date = DateTime.parse("2011-05-19 10:30:14")
-          - formatted_date = date.strftime('%b %d, %Y')
-          = formatted_date
+          = link_to '#', class: 'btn btn-info',  title: 'Registered date', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/calendar.jpg", size: "18x17", alt: "")
+              - listing.created_at
+              - date = DateTime.parse("2011-05-19 10:30:14")
+              - formatted_date = date.strftime('%b %d, %Y')
+              = formatted_date
         .col-3{:style=> "padding-top: 0.8em;"}
-          - listing_category_title = Category.find(listing.category_id).url
-          = truncate(listing_category_title, :length => 20)
+          = link_to '#', class: 'btn btn-info',  title: 'Status', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/sandglass.png", size: "16x17", alt: "")
+              - listing_category_title = Category.find(listing.category_id).url
+              = truncate(listing_category_title, :length => 20)
         .col-3{:style => "padding-top: 0.8em;"}
-          = icon_tag(listing.icon_name, ["icon-fix"])
-          = truncate(shape_name(listing), :length => 20)
+          -#= icon_tag(listing.icon_name, ["icon-fix"])
+          = link_to '#', class: 'btn btn-info',  title: 'Recruitment status', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/recruiting.png", size: "16x17", alt: "")
+              = truncate(shape_name(listing), :length => 20)
         .col-3{:style => "padding-top: 0.8em;"}
-          - price_text = ""
           - if listing.price
-            -# .home-list-price-value-mobile
-            = MoneyViewUtils.to_humanized(listing.price)
-            -#- price_text = nil
-            - if listing.quantity.present?
-              - price_text = t("listings.form.price.per") + " " + listing.quantity
-            - elsif listing.unit_type
-              - price_text = price_quantity_per_unit(listing)
-          = price_text
-
+            = link_to '#', class: 'btn btn-info',  title: 'Compensation', 'data-placement' => 'top' do
+              %span{:class => "glyphicon glyphicon-search"}
+              %div{:style => "color: #3c3c3c;"}
+                = image_tag("listing_image/money_coin.png", size: "18x17", alt: "")
+                - price_text = ""
+                -# .home-list-price-value-mobile
+                = MoneyViewUtils.to_humanized(listing.price)
+                -#- price_text = nil
+                - if listing.quantity.present?
+                  - price_text = t("listings.form.price.per") + " " + listing.quantity
+                - elsif listing.unit_type
+                  - price_text = price_quantity_per_unit(listing)     
+                = price_text
       %row
         .col-12.home-list-item-description
-          = truncate(listing.description, :length => 300)
+          = truncate(listing.description, :length => 350)
 
-      %row
-        .col-12
-          - if @is_current_community_admin == true
-            = link_to(person_path(username: listing.author.username), :class => "home-list-author-name") do
-              = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
-          - else
-            = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
+    -#  %row
+    -#    .col-12
+    -#      - if @is_current_community_admin == true
+    -#        = link_to(person_path(username: listing.author.username), :class => "home-list-author-name") do
+    -#          = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
+    -#      - else
+    -#        = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
 
       -# .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
 
