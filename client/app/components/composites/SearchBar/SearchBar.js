@@ -156,7 +156,7 @@ class SearchBar extends Component {
       className: css.locationInput,
       placeholder: locationPlaceholder,
       defaultValue: locationQuery,
-      autoComplete: 'off',
+      autoComplete: 'on',
 
       // When the user edits the selected location value, the fetched
       // place object is not up to date anymore and has to be cleared.
