@@ -255,10 +255,15 @@ $home-list-avatar-padding: lines(0.25);
   @include media(desktop) {
     padding-bottom: (ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type)) - em(3));
   }
-
 }
 .browsing-list-item-title {
   padding-bottom: 0;
+}
+.home-list-title-row-custom-style {
+  text-align: center;
+}
+.home-list-title-link-custom-style {
+  color: #0070C0;
 }
 .home-list-title {
   padding-bottom: 0;  
@@ -278,7 +283,6 @@ $home-list-avatar-padding: lines(0.25);
     top: em($padding-fine-tuning * -1);
   }
 }
-
 .home-list-details-right {
   // width: 142px;
   float: right;
