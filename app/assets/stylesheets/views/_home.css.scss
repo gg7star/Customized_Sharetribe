@@ -163,12 +163,18 @@
   position: relative;
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
-  min-height: lines(7.5);
+  min-height: lines(6);
 
   @include media(tablet) {
     padding-bottom: lines(1);
     margin-bottom: lines(1);
     height: lines(7.5);
+  }
+
+  @include media(desktop) {
+    padding-bottom: lines(1);
+    margin-bottom: lines(1);
+    height: lines(6);
   }
 }
 
@@ -176,6 +182,20 @@
   min-height: 5.75em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+
+.home-list-item-subtitle {
+  float: none;
+  padding-right: 1.5em;
+  padding-top: 0.8em;
+
+  @include media(desktop) {
+    float: left;
+  }
+
+  @include media(tablet) {
+    float: left;
+  }
 }
 
 $image-width: lines(7.5); // FIXME
@@ -599,3 +619,4 @@ $home-list-avatar-padding: lines(0.25);
 .pac-item span {
   pointer-events: none;
 }
+
