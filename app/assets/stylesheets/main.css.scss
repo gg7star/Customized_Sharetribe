@@ -1974,15 +1974,17 @@ figure.fluidratio {
     // z-index: -1;
     // height: 400px;
     background-image: url(image-path($cover-photo-url));
-    height: auto;
+    height: 450px;
     background-size: cover;
   }
 
   figure.marketplace-cover-small {
     background-image: url(image-path($small-cover-photo-url));
-    height: em($small-cover-photo-mobile-height);
+    //height: em($small-cover-photo-mobile-height);
+    height: 96px; 
     @include media(tablet) {
-      @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
+      height: 96px; 
+      // @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
     }
   }
 
@@ -2000,9 +2002,11 @@ figure.fluidratio {
   }
 
   figure.marketplace-cover-small-fade {
-    height: em($small-cover-photo-mobile-height, 16);
+    // em($small-cover-photo-mobile-height, 16);
+    height: 96px; 
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em($small-cover-photo-height) em($small-cover-photo-height));
+      height: 96px; 
     }
   }
 
