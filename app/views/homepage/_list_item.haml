@@ -57,12 +57,12 @@
             %div{:style => "color: #3c3c3c;"}
               = image_tag("listing_image/recruiting.png", size: "16x17", alt: "")
               = truncate(shape_name(listing), :length => 20)
-        .home-list-item-subtitle{:style=> "  float: none;"} 
+        .home-list-item-subtitle
           - if listing.price
             = link_to '#', class: 'btn btn-info',  title: 'Compensation', 'data-placement' => 'top' do
               %span{:class => "glyphicon glyphicon-search"}
-              %div{:style => "color: #3c3c3c;"}
-                = image_tag("listing_image/money_coin.png", size: "22x25", alt: "")
+              %div{:style => "color: #3c3c3c;"}  
+                = image_tag("listing_image/money_coin.png", size: "16x17", alt: "")
                 - price_text = ""
                 -# .home-list-price-value-mobile
                 = MoneyViewUtils.to_humanized(listing.price)
