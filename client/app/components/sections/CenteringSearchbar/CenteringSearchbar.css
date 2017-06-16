@@ -1,0 +1,120 @@
+.CenteringSearchbarContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  height: var(--SearchBarOnCoverImage_mobileHeight);
+  padding: var(--Topbar_mobilePadding);
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 30px;
+  left: 10%;
+  z-index: 10;
+  width: 80%;
+  background: transparent;
+  
+  font-size: var(--Topbar_fontSize);
+  font-family: var(--Topbar_fontFamily);
+
+  @media (--medium-viewport) {
+    height: var(--SearchBarOnCoverImage_height);
+    padding: var(--Topbar_padding);
+    left: 25%;
+    z-index: 10;
+    width: 50%;
+    top: 21.75em;
+    background: white;
+    border: solid 2px #c3c3c3;
+  }
+
+  @media (--large-viewport) {
+    height: var(--SearchBarOnCoverImage_height);
+    padding: var(--Topbar_padding);
+    left: 25%;
+    z-index: 10;
+    width: 50%;
+    top: 21.75em;
+    background: white;
+    border: solid 2px #c3c3c3;
+  }
+
+  @media (--search-desktop-wide) {
+    height: var(--SearchBarOnCoverImage_height);
+    padding: var(--Topbar_padding);
+    left: 25%;
+    z-index: 10;
+    width: 50%;
+    top: 24.75em;
+    background: white;
+    border: solid 2px #c3c3c3;
+  }
+
+  /* Base style overrides to reset styles coming from the old SASS styles. */
+  box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  & input[type='search'] {
+    -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  & form,
+  & input,
+  & button,
+  & svg {
+    font-family: var(--Topbar_fontFamily);
+  }
+
+  & input {
+    font-size: var(--Topbar_inputFontSizeMobile);
+
+    @media (--large-viewport) {
+      font-size: calc(var(--SearchBarOnCoverImage_height) * 0.375);
+    }
+
+    @media (--medium-viewport) {
+      font-size: calc(var(--SearchBarOnCoverImage_height) * 0.375);
+    }
+  }
+
+  & button {
+    border-radius: 0;
+  }
+
+  /* End of base style overrides. */
+
+  & > * {
+    @media (--medium-viewport) {
+      margin-right: var(--Topbar_mobileItemSpacing);
+    }
+
+    @media (--large-viewport) {
+      margin-right: var(--Topbar_itemSpacing);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}
+
+
+.topbarMobileSearchPlaceholder {
+  width: var(--SearchBar_mobileHeight);
+
+  @media (--medium-viewport) {
+    display: none;
+  }
+}
+
