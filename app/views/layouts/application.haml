@@ -28,7 +28,7 @@
       - props = topbar_props
       - cache props do
         - if logged_in? || !(params[:controller] == 'homepage' && params[:action] == 'index')
-          = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
+          = react_component("TopbarWithOnlyMenuApp", props: props, prerender: true, id: 'topbar-container')
         - else
           = react_component("LandingTopbarApp", props: props, prerender: true, id: 'landingtopbar-container')
     - else
@@ -39,6 +39,11 @@
         = render partial: "layouts/admin_expiration_notice", locals: {external_plan_service_login_url: admin_plan_path}
       - else
         = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
+    
+    -#- if params[:controller][/^admin\//] != "admin/"
+    - if params[:controller] == 'homepage' && params[:action] == 'index'
+      .search-form
+        = render partial: "homepage/custom_search_bar"
 
     - content_for(:page_content) do
       %section.marketplace-lander
@@ -47,7 +52,7 @@
             %figure.marketplace-cover.fluidratio
               .lander-content.marketplace-lander-content
                 = yield :title_header
-        - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+        - else #if !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
           .coverimage
             %figure.marketplace-cover-small.fluidratio
             .coverimage-fade{:class => yield(:coverfade_class)}
@@ -56,6 +61,8 @@
             .title-header-wrapper
               .marketplace-title-header
                 = yield :title_header
+            -#.search-form
+            -#  = render partial: "homepage/custom_search_bar"
 
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper

@@ -35,14 +35,12 @@
     .browse-view-search-form
       - if(main_search == :location)
         = render partial: "location_bar"
-      - else
+      - elsif(main_search == :keyword)
         = render partial: "search_bar"
+      - elsif(main_search == :keyword_and_location)
+        = render partial: "custom_search_bar"
 
-  .search-form
-    - if(main_search == :location)
-      = render partial: "location_bar"
-    - else
-      = render partial: "search_bar"
+
 
 - content_for(:head) do
   - if seo_pagination_links[:prev].present?
@@ -58,7 +56,6 @@
     = t(".this_is_private_community")
 
 - else
-
   .home-toolbar
     - if params[:view] == nil && (params[:q] == nil || params[:q] == '')
       .home-toolbar-title

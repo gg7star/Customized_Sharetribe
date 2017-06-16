@@ -196,6 +196,12 @@ module.exports = {
   '--SearchBar_iconSize': '16px',
   '--SearchBar_iconTopMarginFix': '4px',
 
+  '--SearchBarOnCoverImage_narrowWidth': `${searchBarNarrowWidth}px`,
+  '--SearchBarOnCoverImage_width': `${searchBarWidth}px`,
+  '--SearchBarOnCoverImage_mobileHeight': '50px',
+  '--SearchBarOnCoverImage_height': '4em',
+  '--SearchBarOnCoverImage_iconSize': '30px',
+
   // ProfileDropdown
   '--ProfileDropdown_border': `1px solid ${borderColor}`,
   '--ProfileDropdown_borderColor': borderColor,
