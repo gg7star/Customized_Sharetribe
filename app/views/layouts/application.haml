@@ -28,7 +28,7 @@
       - props = topbar_props
       - cache props do
         - if logged_in? || !(params[:controller] == 'homepage' && params[:action] == 'index')
-          = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
+          = react_component("TopbarWithOnlyMenuApp", props: props, prerender: true, id: 'topbar-container')
         - else
           = react_component("LandingTopbarApp", props: props, prerender: true, id: 'landingtopbar-container')
     - else
@@ -40,9 +40,8 @@
       - else
         = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
     
-    - controller_name = params[:controller]
-    - if params[:controller][/^admin\//] != "admin/"
-      - props[:big_cover_photo] = @big_cover_photo ? true : false
+    -#- if params[:controller][/^admin\//] != "admin/"
+    - if params[:controller] == 'homepage' && params[:action] == 'index'
       .search-form
         = render partial: "homepage/custom_search_bar"
 

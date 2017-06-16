@@ -96,7 +96,9 @@ const createQuery = (searchParams, queryString) => {
 };
 
 class CenteringSearchbar extends Component {
+
   render() {
+    console.log ("this.props: ", this.props);
     const { location, marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     const { loggedInUsername } = this.props.user || {};
     const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
@@ -104,7 +106,7 @@ class CenteringSearchbar extends Component {
     const oldSearchParams = parseSearchParams(location);
     const searchPlaceholder = this.props.search ? this.props.search.search_placeholder : null;
 
-    return div({ className: classNames('CenteringSearchbar', this.props.big_cover_photo ? css.CenteringSearchbarContainer : cssOnSmallCoverImage.CenteringSearchbarContainer) }, [
+    return div({ className: classNames('CenteringSearchbar', this.props.user.loggedInUsername == null ? css.CenteringSearchbarContainer : cssOnSmallCoverImage.CenteringSearchbarContainer) }, [
       
 
       this.props.search ?
@@ -128,7 +130,7 @@ class CenteringSearchbar extends Component {
             window.location.assign(searchUrl);
           },
         }) :
-        div({ className: this.props.big_cover_photo ? css.topbarMobileSearchPlaceholder : cssOnSmallCoverImage.topbarMobileSearchPlaceholder})
+        div({ className: this.props.user.loggedInUsername == null ? css.topbarMobileSearchPlaceholder : cssOnSmallCoverImage.topbarMobileSearchPlaceholder})
     ]);
   }
 }
