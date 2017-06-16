@@ -25,7 +25,7 @@
     width: 50%;
     top: 22.75em;
     background: white;
-    border: solid 2px #c3c3c3;
+    border: solid 1px #c3c3c3;
   }
 
   @media (--large-viewport) {
@@ -36,7 +36,7 @@
     width: 50%;
     top: 22.75em;
     background: white;
-    border: solid 2px #c3c3c3;
+    border: solid 1px #c3c3c3;
   }
 
   @media (--search-desktop-wide) {
@@ -47,7 +47,7 @@
     width: 50%;
     top: 22.75em;
     background: white;
-    border: solid 2px #c3c3c3;
+    border: solid 1px #c3c3c3;
   }
 
   /* Base style overrides to reset styles coming from the old SASS styles. */
