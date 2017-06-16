@@ -201,6 +201,7 @@ module.exports = {
   '--SearchBarOnCoverImage_mobileHeight': '50px',
   '--SearchBarOnCoverImage_height': '4em',
   '--SearchBarOnCoverImage_iconSize': '30px',
+  '--SearchBarOnCoverImage_inputFontWeight': 'lighter',
 
   // ProfileDropdown
   '--ProfileDropdown_border': `1px solid ${borderColor}`,
