@@ -99,7 +99,7 @@ module ListingIndexService::Search
             },
             page: search[:page],
             per_page: search[:per_page],
-            # star: true,
+            star: true,
             with: with,
             with_all: with_all,
             order: 'sort_date DESC',
