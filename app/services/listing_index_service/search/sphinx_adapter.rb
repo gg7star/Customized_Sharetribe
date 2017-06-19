@@ -86,10 +86,10 @@ module ListingIndexService::Search
             :origin => [search[:latitude], search[:longitude]],
             :order => 'distance').limit(search[:per_page])
           locations.each_with_index do |location, index|
-            if location.listing.open && !location.listing.deleted &&
-                (location.listing.valid_until == nil || location.listing.valid_until > Time.now)
+            # if location.listing.open && !location.listing.deleted &&
+            #     (location.listing.valid_until == nil || location.listing.valid_until > Time.now)
               models.append location.listing
-            end
+            # end
           end
         else
           models = Listing.search(
