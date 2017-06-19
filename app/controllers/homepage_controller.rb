@@ -105,6 +105,7 @@ class HomepageController < ApplicationController
         render nothing: true, status: 500
       }
     else
+
       locals = {
         shapes: all_shapes,
         filters: relevant_filters,
@@ -183,6 +184,7 @@ class HomepageController < ApplicationController
         Result::Success.new(res[:body])
       }
     else
+      
       ListingIndexService::API::Api.listings.search(
         community_id: @current_community.id,
         search: search,

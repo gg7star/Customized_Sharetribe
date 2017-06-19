@@ -102,6 +102,13 @@ class Listing < ActiveRecord::Base
   validates_length_of :title, :in => 2..60, :allow_nil => false
 
   before_create :set_sort_date_to_now
+
+  acts_as_mappable :default_units => :miles,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+               
   def set_sort_date_to_now
     self.sort_date ||= Time.now
   end

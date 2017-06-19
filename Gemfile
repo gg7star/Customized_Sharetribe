@@ -202,3 +202,6 @@ gem 'daemons', '~> 1.2.4'
 gem 'video_player'
 
 gem 'font-awesome-rails'
+
+gem 'acts_as_geocodable'
+gem 'geokit-rails'
