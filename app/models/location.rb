@@ -13,6 +13,7 @@
 #  person_id      :string(255)
 #  location_type  :string(255)
 #  community_id   :integer
+#  delta          :boolean          default(TRUE)
 #
 # Indexes
 #
@@ -27,6 +28,13 @@ class Location < ActiveRecord::Base
   belongs_to :listing
   belongs_to :community
 
+  # add for geo codeing
+  acts_as_mappable :default_units => :miles,
+               :default_formula => :sphere,
+               :distance_field_name => :distance,
+               :lat_column_name => :latitude,
+               :lng_column_name => :longitude
+  
   def search_and_fill_latlng(address=nil, locale=APP_CONFIG.default_locale)
     okresponse = false
     geocoder = "http://maps.googleapis.com/maps/api/geocode/json?address="
@@ -36,7 +44,7 @@ class Location < ActiveRecord::Base
     end
 
     if address != nil && address != ""
-      url = URI.escape(geocoder+address)
+      url = URI.escape(geocoder%address)
       resp = RestClient.get(url)
       result = JSON.parse(resp.body)
 
@@ -47,6 +55,12 @@ class Location < ActiveRecord::Base
       end
     end
     okresponse
+  end
+
+  # add for geo search
+  def search params
+    puts params
+    ls = Location.within(params[:distance], :origin => [params[:la], params[:lg]])
   end
 
 end

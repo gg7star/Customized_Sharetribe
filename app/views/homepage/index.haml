@@ -40,8 +40,6 @@
       - elsif(main_search == :keyword_and_location)
         = render partial: "custom_search_bar"
 
-
-
 - content_for(:head) do
   - if seo_pagination_links[:prev].present?
     %link{rel: "prev", href: seo_pagination_links[:prev]}
@@ -109,7 +107,7 @@
             = render :partial => "filters", :locals => { show_price_filter: show_price_filter, show_custom_fields: @show_custom_fields, filters: filters }
 
   .row
-    - if params[:view] == nil && (params[:q] == nil || params[:q] == '')
+    - if params[:view] == nil && (params[:q] == nil || params[:q] == '') && params[:boundingbox] == nil
       - main_container_class = "col-12"
       %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
         .home-fluid-thumbnail-grid
@@ -156,10 +154,10 @@
                 = "To find a match use advance search"
 
               .home-listings
-                - if (location_search_in_use)
-                  = render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
-                - else
-                  = render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
+                -#- if location_search_in_use
+                -#= render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
+                -#- else
+                = render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
             .home-loading-more
               = will_paginate(@listings)
               - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end

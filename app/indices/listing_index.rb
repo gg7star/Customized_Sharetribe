@@ -27,8 +27,13 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     has custom_dropdown_field_values.selected_options.id, :as => :custom_dropdown_field_options, :type => :integer, :multi => true
     has custom_checkbox_field_values.selected_options.id, :as => :custom_checkbox_field_options, :type => :integer, :multi => true
 
-    set_property :enable_star => true
+    # has location(:id), :as => :location_id
+    # has 'RADIANS(listings_locations.latitude)', :as => :latitude, :type => :float
+    # has location.longitude, :as => :longitude, :type => :float
 
+
+    set_property :enable_star => true
+    
     set_property :field_weights => {
       :title       => 10,
       :category    => 8,

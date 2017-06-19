@@ -84,6 +84,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_geocodable (2.1.1)
+      graticule (~> 2.4.0)
+      rails (>= 3, < 5.0)
     addressable (2.3.8)
     airbrake (4.1.0)
       builder
@@ -221,10 +224,19 @@ GEM
       thor (~> 0.19.1)
     formatador (0.2.5)
     fssm (0.2.10)
+    geokit (1.11.0)
+    geokit-rails (2.2.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     gherkin (4.0.0)
     git-version-bump (0.15.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    graticule (2.4.0)
+      activesupport
+      happymapper (>= 0.3.0)
+      i18n
+      json
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -241,6 +253,8 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     haml (4.0.7)
       tilt
+    happymapper (0.4.1)
+      libxml-ruby (~> 2.0)
     hashie (3.4.6)
     hike (1.2.3)
     hiredis (0.6.1)
@@ -267,6 +281,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.15)
+    libxml-ruby (2.9.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -546,6 +561,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-session_store (~> 1.0.0.pre)
+  acts_as_geocodable
   airbrake (~> 4.1.0)
   annotate (~> 2.6.5)
   awesome_print (~> 1.6.1)
@@ -578,6 +594,7 @@ DEPENDENCIES
   faraday_middleware (~> 0.10.0)
   flying-sphinx (~> 1.2.0)
   font-awesome-rails
+  geokit-rails
   guard-rspec (~> 4.6.5)
   haml (~> 4.0.5)
   hiredis
