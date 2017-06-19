@@ -74,7 +74,10 @@
                 = price_text
       %row
         .col-12.home-list-item-description
-          = truncate(listing.description, :length => 187)
+          - if listing.listing_images.size > 0
+            = truncate(listing.description, :length => 137)
+          - else
+            = truncate(listing.description, :length => 187)
 
     -#  %row
     -#    .col-12
