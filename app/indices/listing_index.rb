@@ -31,9 +31,8 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     # has 'RADIANS(listings_locations.latitude)', :as => :latitude, :type => :float
     # has location.longitude, :as => :longitude, :type => :float
 
-
     set_property :enable_star => true
-    
+
     set_property :field_weights => {
       :title       => 10,
       :category    => 8,
