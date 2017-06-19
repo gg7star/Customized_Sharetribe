@@ -86,12 +86,10 @@ module ListingIndexService::Search
             :origin => [search[:latitude], search[:longitude]],
             :order => 'distance').limit(search[:per_page])
           locations.each_with_index do |location, index|
-            models.append location.listing
-          end
-          begin
-            DatabaseSearchHelper.success_result(models.total_entries, models, includes)
-          rescue ThinkingSphinx::SphinxError => e
-            Result::Error.new(e)
+            if location.listing.open && !location.listing.deleted &&
+                (location.listing.valid_until == nil || location.listing.valid_until > Time.now)
+              models.append location.listing
+            end
           end
         else
           models = Listing.search(
@@ -101,18 +99,18 @@ module ListingIndexService::Search
             },
             page: search[:page],
             per_page: search[:per_page],
-            star: true,
+            # star: true,
             with: with,
             with_all: with_all,
             order: 'sort_date DESC',
-            max_query_time: 1000 # Timeout and fail after 1s
+            max_query_time: 1000
           )
+        end
 
-          begin
-            DatabaseSearchHelper.success_result(models.total_entries, models, includes)
-          rescue ThinkingSphinx::SphinxError => e
-            Result::Error.new(e)
-          end
+        begin
+          DatabaseSearchHelper.success_result(models.total_entries, models, includes)
+        rescue ThinkingSphinx::SphinxError => e
+          Result::Error.new(e)
         end
       end
 
