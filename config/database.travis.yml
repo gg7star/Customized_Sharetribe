@@ -1,13 +1,27 @@
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+mysql: &mysql
+  adapter: mysql2
+  database: sharetribe_match_test_match
+  encoding: utf8
+  username: root
+  password:
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "mysql" %>
+  
+development:
+  <<: *defaults
+
 test: &test
-    adapter: mysql2
-    database: sharetribe_match_test_match
-    encoding: utf8
-    username: travis
-    #password: # ADD DATABASE PASSWORD
-    host: localhost
+  <<: *defaults
+
+production:
+  <<: *defaults
 
 cucumber:
   <<: *test
