@@ -1,0 +1,60 @@
+- frontpage_fragment_cache("list_item", listing) do
+  .home-list-item{:style => listing.listing_images.size > 0 ? "height: 11em;" : ""}
+    - if listing.listing_images.size > 0
+      = link_to listing_path(listing.url), :class => "home-list-image-container-desktop" do
+        = image_tag listing.listing_images.first[:small_3x2], {:alt => listed_listing_title(listing), :class => "home-list-image"}
+    - if listing.listing_images.size > 0
+      = link_to listing_path(listing.url), :class => "home-list-image-container-mobile" do
+        = image_tag listing.listing_images.first[:thumb], {:alt => listed_listing_title(listing), :class => "home-list-image"}
+
+    %div{:class => (listing.listing_images.size > 0 ? "home-list-details-with-image" : "")}
+      %row.home-list-title-row-custom-style
+        %h2.home-list-title
+          = link_to listing_path(listing.url), class: "home-list-title-link-custom-style" do
+            = listing.title
+
+      -# add description in content of listing
+      %row
+        .home-list-item-subtitle
+          = link_to '#', class: 'btn btn-info',  title: 'Registered date', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/calendar.png", size: "18x17", alt: "")
+              - listing.created_at
+              - date = DateTime.parse("2011-05-19 10:30:14")
+              - formatted_date = date.strftime('%b %d, %Y')
+              = formatted_date
+        .home-list-item-subtitle
+          = link_to '#', class: 'btn btn-info',  title: 'Status', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/status.png", size: "22x17", alt: "")
+              - listing_category_title = Category.find(listing.category_id).url
+              = truncate(listing_category_title, :length => 25)
+        .home-list-item-subtitle
+          = link_to '#', class: 'btn btn-info',  title: 'Recruitment status', 'data-placement' => 'top' do
+            %span{:class => "glyphicon glyphicon-search"}
+            %div{:style => "color: #3c3c3c;"}
+              = image_tag("listing_image/recruiting.png", size: "16x17", alt: "")
+              = truncate(shape_name(listing), :length => 20)
+        .home-list-item-subtitle
+          - if listing.price
+            = link_to '#', class: 'btn btn-info',  title: 'Compensation', 'data-placement' => 'top' do
+              %span{:class => "glyphicon glyphicon-search"}
+              %div{:style => "color: #3c3c3c;"}
+                = image_tag("listing_image/money_coin.png", size: "16x17", alt: "")
+                - price_text = ""
+                -# .home-list-price-value-mobile
+                = MoneyViewUtils.to_humanized(listing.price)
+                -#- price_text = nil
+                - if listing.quantity.present?
+                  - price_text = t("listings.form.price.per") + " " + listing.quantity
+                - elsif listing.unit_type
+                  - price_text = price_quantity_per_unit(listing)
+                = price_text
+      %row
+        .col-12.home-list-item-description
+          - if listing.listing_images.size > 0
+            = truncate(listing.description, :length => 60)
+          - else
+            = truncate(listing.description, :length => 160)
