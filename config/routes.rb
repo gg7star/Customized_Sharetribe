@@ -1,5 +1,6 @@
 # coding: utf-8
 Kassi::Application.routes.draw do
+  get '/comingsoon', :to => redirect('/comingsoon/ipad-portrait-image.htm#blue')
 
   namespace :mercury do
     resources :images
@@ -487,4 +488,5 @@ Kassi::Application.routes.draw do
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
 
   match "*path" => "errors#not_found", via: :all
+
 end
