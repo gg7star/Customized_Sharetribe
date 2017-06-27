@@ -1,6 +1,9 @@
-.people-fluid-thumbnail-grid-container
-  .people-fluid-thumbnail-grid#profile-listings-list
-    = render :partial => "people/grid_item", :collection => listings, :as => :listing
+.home-listings
+  = render partial: "people/list_item", collection: listings, as: :listing, locals: { shape_name_map: ""}
+
+-# .people-fluid-thumbnail-grid-container
+-#   .people-fluid-thumbnail-grid#profile-listings-list
+-#     = render :partial => "people/grid_item", :collection => listings, :as => :listing
 
 - if listings.total_entries > limit
   .people-load-more-listings-container
