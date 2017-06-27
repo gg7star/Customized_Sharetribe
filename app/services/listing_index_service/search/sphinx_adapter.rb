@@ -78,20 +78,44 @@ module ListingIndexService::Search
           custom_checkbox_field_options: (grouped_by_operator[:and] || []).flat_map { |v| v[:value] },
         }
 
-        if search[:keywords] == nil && search[:latitude] != nil && search[:longitude] != nil
-          models = Listing.search
-          models.clear;
+        if search[:latitude] != nil && search[:longitude] != nil
+          listings = []
+          models = []
           locations = Location.within(
             search[:distance_max] || search[:distance_unit] == :km ? 3.10686 : 5,
             :origin => [search[:latitude], search[:longitude]],
-            :order => 'distance').limit(search[:per_page])
+            :order => 'distance DESC').order('created_at DESC').limit(search[:per_page])
+
+          if search[:keywords] != nil
+            listings = Listing.search(
+              Riddle::Query.escape(search[:keywords] || ""),
+              sql: {
+                include: included_models
+              },
+              page: search[:page],
+              per_page: search[:per_page],
+              with: with,
+              with_all: with_all,
+              order: 'created_at DESC',
+              max_query_time: 1000
+            )
+          else
+            listings = Listing.search
+          end
+
           locations.each_with_index do |location, index|
             if location.listing.open && !location.listing.deleted &&
                 (location.listing.valid_until == nil || location.listing.valid_until > Time.now)
-              models.append location.listing
+              listings.each_with_index do |listing, index|
+                if location.listing.id == listing.id
+                  models.append listing
+                end
+              end
             end
           end
+
         else
+
           models = Listing.search(
             Riddle::Query.escape(search[:keywords] || ""),
             sql: {
@@ -102,13 +126,16 @@ module ListingIndexService::Search
             # star: true,
             with: with,
             with_all: with_all,
-            order: 'sort_date DESC',
+            order: 'created_at DESC',
             max_query_time: 1000
           )
         end
 
+        # resort Paid Trials ?
+        # models = models.order('created_at DESC, price_cents ASC')
+
         begin
-          DatabaseSearchHelper.success_result(models.total_entries, models, includes)
+          DatabaseSearchHelper.success_result(models.count, models, includes)
         rescue ThinkingSphinx::SphinxError => e
           Result::Error.new(e)
         end
