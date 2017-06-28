@@ -1,6 +1,6 @@
 # coding: utf-8
 Kassi::Application.routes.draw do
-  get '/comingsoon', :to => redirect('/comingsoon/ipad-portrait-image.htm#blue')
+  get '/', :to => redirect('/comingsoon/iphone-portrait-image.htm#face')
 
   namespace :mercury do
     resources :images
