@@ -55,7 +55,7 @@
 
 - else
   .home-toolbar
-    - if params[:view] == nil && (params[:q] == nil || params[:q] == '')
+    - if params[:view] == nil && (params[:q] == nil )
       .home-toolbar-title
         = "Explore Clinical Trials"
       .home-toolbar-title-desctiption
@@ -107,7 +107,7 @@
             = render :partial => "filters", :locals => { show_price_filter: show_price_filter, show_custom_fields: @show_custom_fields, filters: filters }
 
   .row
-    - if params[:view] == nil && (params[:q] == nil || params[:q] == '') && params[:boundingbox] == nil
+    - if params[:view] == nil && params[:q] == nil && params[:boundingbox] == nil
       - main_container_class = "col-12"
       %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
         .home-fluid-thumbnail-grid
