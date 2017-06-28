@@ -11,7 +11,8 @@ class HomepageController < ApplicationController
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
-    if params[:view] == nil && (params[:q] == nil) && params[:boundingbox] == nil && params[:locale] == nil
+    if params[:view] == nil && (params[:q] == nil) && params[:boundingbox] == nil && 
+       params[:locale] == nil && @current_user == nil
       redirect_to '/comingsoon/iphone-portrait-image.htm#face'
       return
     end
