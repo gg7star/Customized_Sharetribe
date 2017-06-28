@@ -11,6 +11,11 @@ class HomepageController < ApplicationController
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
+    if params[:view] == nil && (params[:q] == nil) && params[:boundingbox] == nil && params[:locale] == nil
+      redirect_to '/comingsoon/iphone-portrait-image.htm#face'
+      return
+    end
+
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -184,7 +189,7 @@ class HomepageController < ApplicationController
         Result::Success.new(res[:body])
       }
     else
-      
+
       ListingIndexService::API::Api.listings.search(
         community_id: @current_community.id,
         search: search,
