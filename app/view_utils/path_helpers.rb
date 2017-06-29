@@ -42,6 +42,7 @@ module PathHelpers
 
   def landing_page_path(community_id:, logged_in:, locale_param:, default_locale:)
     non_default_locale = ->(locale) { locale && locale != default_locale.to_s}
+
     case [CustomLandingPage::LandingPageStore.enabled?(community_id), logged_in, locale_param]
     when matches([true, false, non_default_locale])
       paths.landing_page_with_locale_path(locale: locale_param)
@@ -50,7 +51,7 @@ module PathHelpers
     when matches([false, false, non_default_locale])
       paths.homepage_with_locale_path(locale: locale_param)
     else
-      paths.homepage_without_locale_path(locale: locale_param)
+      paths.homepage_without_locale_path(locale: nil)
     end
   end
 
