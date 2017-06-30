@@ -29,8 +29,8 @@
       - cache props do
         - if logged_in? || !(params[:controller] == 'homepage' && params[:action] == 'index')
           = react_component("TopbarWithOnlyMenuApp", props: props, prerender: true, id: 'topbar-container')
-        - else
-          = react_component("LandingTopbarApp", props: props, prerender: true, id: 'landingtopbar-container')
+        -#- else
+        -#  = react_component("LandingTopbarApp", props: props, prerender: true, id: 'landingtopbar-container')
     - else
       = render partial: 'layouts/global_header', locals: header_props()
 
