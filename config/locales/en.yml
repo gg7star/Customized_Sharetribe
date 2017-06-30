@@ -1768,8 +1768,10 @@ en:
       visible_only_to_you: "visible only to you and the marketplace admin"
       visible_to_everybody: "visible to everybody"
       create_account_with_facebook: "Sign up with Facebook"
+      create_organisation_account_with_facebook: "For patients, sign up with Facebook"
       OR: OR
       signup_with_email: "Sign up with email"
+      signup_as_patients_with_email: "For organisation, sign up with email"
     profile_feedback:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"
@@ -1833,7 +1835,9 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
+      log_in_as_patients_with_your_facebook_account: "For patients"
       log_in_with_your_facebook_account: "Log in with Facebook"
+      log_in_as_organisation_with_your_username: "For organisation"
       or_sign_up_with_your_username: "...or with your username or email:"
       we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:

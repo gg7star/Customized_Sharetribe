@@ -17,12 +17,13 @@
             :count => (@current_community.allowed_emails.split(",").count))
 
   - unless !facebook_connect_in_use? || params[:no_fb]
+    %h1=t(".create_organisation_account_with_facebook")
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
 
     .signup-horizontal-line
       .signup-horizontal-line-text=t(".OR")
 
-    %h3=t(".signup_with_email")
+    %h1=t(".signup_as_patients_with_email")
 
   = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
 
