@@ -24,7 +24,7 @@
     %h1=t(".log_in_as_patients_with_your_facebook_account")
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
 
-    %h1{style: "margin-top: 2.5em; margin-bottom: 1.25em;"}
+    %h1{style: "margin-top: 2.25em; margin-bottom: 1.25em;"}
       =t(".log_in_as_organisation_with_your_username")
 
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
