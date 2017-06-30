@@ -236,39 +236,51 @@ class TopbarWithOnlyMenu extends Component {
     const searchPlaceholder =  null;
     const textLogo = this.props.logo.image ? '' : css.textLogo;
 
-    return div({ className: classNames('Topbar', css.topbar) }, [
-      hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
-      r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
-      div({ className: css.topbarMediumSpacer }),
-      div({ className: css.topbarMenuSpacer }, hasMenuProps ?
-        r(MenuPriority, menuProps) :
-        null),
-      hasMultipleLanguages ? r(Menu, {
-        ...languageMenuProps,
-        className: {
-          [css.topbarMenu]: true,
-        } }) : null,
-      this.props.avatarDropdown && loggedInUsername ?
-        r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,
-                                 loggedInUsername, isAdmin, this.props.unReadMessagesCount, this.props.routes),
-          classSet: css.topbarAvatarDropdown,
-        }) :
+    if (loggedInUsername == null) {
+      console.log("loggedInUsername == null")
+      return div({ className: classNames('Topbar', css.topbar) }, [
+        r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
         r(LoginLinks, {
           loginUrl: loginRoute,
           signupUrl: signupRoute,
           customColor: marketplaceColor1,
           className: css.topbarLinks,
         }),
-      this.props.newListingButton ?
-        r(AddNewListingButton, {
-          ...this.props.newListingButton,
-          className: css.topbarListingButton,
-          url: newListingRoute,
-          customColor: marketplaceColor1,
-        }) :
-      null,
-    ]);
+      ]);
+    } else 
+      return div({ className: classNames('Topbar', css.topbar) }, [
+        hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
+        r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
+        div({ className: css.topbarMediumSpacer }),
+        div({ className: css.topbarMenuSpacer }, hasMenuProps ?
+          r(MenuPriority, menuProps) :
+          null),
+        hasMultipleLanguages ? r(Menu, {
+          ...languageMenuProps,
+          className: {
+            [css.topbarMenu]: true,
+          } }) : null,
+        this.props.avatarDropdown && loggedInUsername ?
+          r(AvatarDropdown, {
+            ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,
+                                   loggedInUsername, isAdmin, this.props.unReadMessagesCount, this.props.routes),
+            classSet: css.topbarAvatarDropdown,
+          }) :
+          r(LoginLinks, {
+            loginUrl: loginRoute,
+            signupUrl: signupRoute,
+            customColor: marketplaceColor1,
+            className: css.topbarLinks,
+          }),
+        this.props.newListingButton ?
+          r(AddNewListingButton, {
+            ...this.props.newListingButton,
+            className: css.topbarListingButton,
+            url: newListingRoute,
+            customColor: marketplaceColor1,
+          }) :
+        null,
+      ]);
   }
 }
 

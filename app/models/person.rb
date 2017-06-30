@@ -389,6 +389,16 @@ class Person < ActiveRecord::Base
     is_admin == 1
   end
 
+  # Returns true if the person signed up / logged in as patient with facebook.
+  def is_patient?
+    facebook_id == 0
+  end
+
+  # Returns true if the person signed up / logged in  as organisation with maile.
+  def is_organisation?
+    facebook_id != 0
+  end
+  
   # Starts following a listing
   def follow(listing)
     followed_listings << listing
