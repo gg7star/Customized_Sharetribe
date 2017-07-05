@@ -69,6 +69,13 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     render nothing: true, status: 200
   end
 
+  def user_approved
+    Person.where(id: params[:approved_user]).update_all("approved = 1")
+    Person.where(id: params[:disapproved_user]).update_all("approved = 0")
+
+    render nothing: true, status: 200
+  end
+
   private
 
   def generate_csv_for(yielder, memberships, community)
@@ -129,6 +136,8 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
       "emails.address"
     when "join_date"
       "created_at"
+    when "user_approved"
+      "people.approved"
     when "posting_allowed"
       "can_post_listings"
     else

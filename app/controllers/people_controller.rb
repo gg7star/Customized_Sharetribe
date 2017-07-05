@@ -96,7 +96,7 @@ class PeopleController < Devise::RegistrationsController
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
     end
-
+    
     if @current_community && @current_community.join_with_invite_only? || params[:invitation_code]
 
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
@@ -356,6 +356,13 @@ class PeopleController < Devise::RegistrationsController
   def show_closed?
     params[:closed] && params[:closed].eql?("true")
   end
+
+  # protected
+
+  # def after_sign_up_path_for(resource)
+  #   logout # Or :prefix_to_your_route
+  #   redirect_to logout
+  # end
 
   private
 

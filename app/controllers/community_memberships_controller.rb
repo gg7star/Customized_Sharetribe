@@ -121,6 +121,10 @@ class CommunityMembershipsController < ApplicationController
     render :confirmation_pending, locals: {support_email: APP_CONFIG.support_email}
   end
 
+  def confirmation_approving_pending
+    render :confirmation_approving_pending, locals: {support_email: APP_CONFIG.support_email}
+  end
+
   # Ajax end-points for front-end validation
 
   def check_email_availability_and_validity

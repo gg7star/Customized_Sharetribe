@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for osx10.11 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.18, for osx10.11 (x86_64)
 --
 -- Host: localhost    Database: sharetribe_match_development
 -- ------------------------------------------------------
--- Server version	5.7.17
+-- Server version	5.7.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -1548,6 +1548,7 @@ CREATE TABLE `people` (
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
+  `approved` tinyint(1) NOT NULL DEFAULT '0',
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -1865,7 +1866,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-18 18:38:52
+-- Dump completed on 2017-07-05  1:26:31
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3529,4 +3530,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170613153973');
 INSERT INTO schema_migrations (version) VALUES ('20170613153974');
 
 INSERT INTO schema_migrations (version) VALUES ('20170618034705');
+
+INSERT INTO schema_migrations (version) VALUES ('20170704170230');
 

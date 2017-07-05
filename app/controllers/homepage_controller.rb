@@ -15,6 +15,12 @@ class HomepageController < ApplicationController
       return
     end
 
+    if !(@current_user.approved? || @current_user.is_admin? || (@current_user.community_membership != nil && @current_user.community_membership(@current_user.community_id).admin))
+      # logout
+      redirect_to login_path
+      return
+    end 
+
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
