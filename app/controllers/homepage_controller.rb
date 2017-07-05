@@ -17,7 +17,7 @@ class HomepageController < ApplicationController
 
     if !(@current_user.approved? || @current_user.is_admin? || (@current_user.community_membership != nil && @current_user.community_membership(@current_user.community_id).admin))
       # logout
-      redirect_to login_path
+      redirect_to logout_path
       return
     end 
 
