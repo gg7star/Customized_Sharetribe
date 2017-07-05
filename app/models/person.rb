@@ -42,6 +42,7 @@
 #  min_days_between_community_updates :integer          default(1)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
+#  approved                           :boolean          default(FALSE), not null
 #
 # Indexes
 #
@@ -630,6 +631,18 @@ class Person < ActiveRecord::Base
     self.password_salt = nil
     super
   end
+
+  # def active_for_authentication? 
+  #   super && (approved? || is_admin? || (community_membership != nil && community_membership(community_id).admin)) 
+  # end 
+  
+  # def inactive_message 
+  #   if !approved? && !(is_admin? || community_membership != nil && community_membership(community_id).admin)
+  #     :not_approved 
+  #   else
+  #     super # Use whatever other message 
+  #   end 
+  # end
 
   private
 

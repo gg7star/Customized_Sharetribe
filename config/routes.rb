@@ -147,6 +147,7 @@ Kassi::Application.routes.draw do
 
     get "/logout" => "sessions#destroy", :as => :logout
     get "/confirmation_pending" => "community_memberships#confirmation_pending", :as => :confirmation_pending
+    get "/confirmation_approving_pending" => "community_memberships#confirmation_approving_pending", :as => :confirmation_approving_pending
     get "/login" => "sessions#new", :as => :login
     get "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
@@ -266,6 +267,7 @@ Kassi::Application.routes.draw do
           collection do
             post :promote_admin
             post :posting_allowed
+            post :user_approved
           end
         end
         resource :paypal_preferences, only: :index do

@@ -16,6 +16,8 @@ window.ST.initializeManageMembers = function() {
         return elementToValueObject(event.target);
       }).toProperty(elementToValueObject(domElement));
     });
+    console.log("selector: ", selector, url, allowedKey, disallowedKey);
+
 
     var ajaxRequest = Bacon.combineAsArray(streams).changes().debounce(800).skipDuplicates(_.isEqual).map(function(valueObjects) {
       function isValueTrue(valueObject) {
@@ -39,10 +41,12 @@ window.ST.initializeManageMembers = function() {
     return ajaxRequest;
   }
 
+  var userAllowed = createCheckboxAjaxRequest(".admin-members-approved", "user_approved", "approved_user", "disapproved_user");
   var postingAllowed = createCheckboxAjaxRequest(".admin-members-can-post-listings", "posting_allowed", "allowed_to_post", "disallowed_to_post");
   var isAdmin = createCheckboxAjaxRequest(".admin-members-is-admin", "promote_admin", "add_admin", "remove_admin");
 
   var ajaxRequest = postingAllowed.merge(isAdmin);
+  var ajaxRequest = userAllowed.merge(postingAllowed);
   var ajaxResponse = ajaxRequest.ajax().endOnError();
 
   var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
