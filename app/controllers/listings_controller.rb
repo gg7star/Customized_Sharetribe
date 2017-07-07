@@ -253,7 +253,7 @@ class ListingsController < ApplicationController
       locale: I18n.locale,
       all_locales: @current_community.locales
     )
-    a
+    
     render :new, locals: {
              categories: @current_community.top_level_categories,
              subcategories: @current_community.subcategories,
