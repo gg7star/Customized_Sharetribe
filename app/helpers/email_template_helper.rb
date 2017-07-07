@@ -9,6 +9,15 @@ module EmailTemplateHelper
     }
   end
 
+  def emphasis_font
+    {
+      :size => "5",
+      :color => "#3c3c3c",
+      :face => "Helvetica Neue, Arial, Helvetica, sans-serif",
+      :style => "font-size:16px;line-height:20px;font-weight: bold;"
+    }
+  end
+
   def quote_font
     {
       :size => "4",

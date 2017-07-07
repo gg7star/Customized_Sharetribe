@@ -243,6 +243,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_logged_in_for_organisation
+    if logged_in?
+      true
+    else
+      session[:return_to] = request.fullpath
+      redirect_to sign_up_organisation_path
+
+      false
+    end
+  end
+
   def logged_in?
     @current_user.present?
   end

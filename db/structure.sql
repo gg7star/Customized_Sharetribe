@@ -1293,6 +1293,30 @@ CREATE TABLE `order_permissions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `organisations`
+--
+
+DROP TABLE IF EXISTS `organisations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `organisations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `org_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone_number` text COLLATE utf8_unicode_ci,
+  `org_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sent_offer` tinyint(1) DEFAULT '0',
+  `subscription_complete` tinyint(1) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `test_group_number` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `participations`
 --
 
@@ -1866,7 +1890,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-05  1:26:31
+-- Dump completed on 2017-07-06 21:22:33
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3532,4 +3556,8 @@ INSERT INTO schema_migrations (version) VALUES ('20170613153974');
 INSERT INTO schema_migrations (version) VALUES ('20170618034705');
 
 INSERT INTO schema_migrations (version) VALUES ('20170704170230');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706171951');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706191520');
 

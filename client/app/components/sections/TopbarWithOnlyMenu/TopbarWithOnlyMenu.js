@@ -240,6 +240,14 @@ class TopbarWithOnlyMenu extends Component {
       console.log("loggedInUsername == null")
       return div({ className: classNames('Topbar', css.topbar) }, [
         r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
+        this.props.newListingButton ?
+          r(AddNewListingButton, {
+            ...this.props.newListingButton,
+            className: css.topbarListingButton,
+            url: newListingRoute,
+            customColor: marketplaceColor1,
+          }) :
+        null,
       ]);
     } else 
       return div({ className: classNames('Topbar', css.topbar) }, [
