@@ -130,4 +130,8 @@ module PersonViewUtils
       [first_name]
     end
   end
+
+  def person_username(person)
+    person.username
+  end
 end

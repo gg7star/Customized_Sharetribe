@@ -156,7 +156,7 @@ class Person < ActiveRecord::Base
   validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
-                       :with => /\A[A-Z0-9_]*\z/i
+                       :with => /\A[A-Z0-9_-]*\z/i
 
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
 
@@ -175,6 +175,8 @@ class Person < ActiveRecord::Base
   validates_attachment_content_type :image,
                                     :content_type => ["image/jpeg", "image/png", "image/gif",
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+
+  before_create :generate_username
 
   before_validation(:on => :create) do
     self.id = SecureRandom.urlsafe_base64
@@ -643,6 +645,16 @@ class Person < ActiveRecord::Base
   #     super # Use whatever other message 
   #   end 
   # end
+
+  def generate_username
+    new_username = ""
+    # validation check
+    loop do
+      new_username = "Patient_" + Random.new.bytes(5).bytes.join[0,5]
+      break if Person.where(username: new_username) == []
+    end
+    self.username = new_username
+  end
 
   private
 

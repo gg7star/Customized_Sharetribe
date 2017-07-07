@@ -6,6 +6,15 @@
       = t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@resource, "first_name_only"))
 
 %tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
+      = t("emails.confirmation_instructions.confirmation_registration")
+      %br/
+      = t("emails.confirmation_instructions.confirmation_username")
+      %font{emphasis_font}
+        = PersonViewUtils.person_username(@resource)
+
+%tr
   %td{:align => "left"}
     %font{body_font}
       = t("emails.confirmation_instructions.need_to_confirm")

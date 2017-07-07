@@ -381,6 +381,10 @@ Kassi::Application.routes.draw do
       get :message_arrived
     end
 
+
+    resources :organisations
+    get "/signup_organisation" => "organisations#new", :as => :sign_up_organisation
+
     devise_for :people, skip: :omniauth_callbacks, controllers: { confirmations: "confirmations", registrations: "people", omniauth_callbacks: "sessions"}, :path_names => { :sign_in => 'login'}
     devise_scope :person do
       # these matches need to be before the general resources to have more priority

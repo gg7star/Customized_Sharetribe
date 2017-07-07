@@ -1,0 +1,74 @@
+@import "../mixins/all";
+@import "compass/css3/background-size";
+
+.content-promo-container {
+  text-align: center;
+  background: #eeeeee;
+}
+
+.content-promo-wrapper {
+  @include wrapper(0);
+  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.content-promo-description-container {
+  border: 1px solid #d4cdcd;
+
+  @include media(mobile) {
+    padding: 0.5em;
+  }
+  
+  @include media(mobile-landscape) {
+    height: 8em;
+    padding: 0.5em;
+  }
+
+  @include media(tablet) {
+    height: 8em;
+    padding: 5%;
+  }
+
+  @include media(desktop) {
+    height: 12em;
+    padding: 5%;
+  }
+}
+
+.content-promo-description-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 20px;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+}
+
+.content-promo-description-text {
+  color: #808080;
+  font-size: 18px;
+}
+
+.content-promo-even-more-container {
+  border: 1px solid #d4cdcd;
+  padding: 5%;
+}
+
+.content-promo-even-more-text {
+  color: #808080;
+  font-size: 18px;
+  text-align: left;
+}
+
+.content-promo-contact-us-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 20px;
+  padding-top: 2.25em;
+  padding-bottom: 0.5em;
+}
+
+.content-promo-contact-us-text {
+  color: #808080;
+  font-size: 18px;
+}

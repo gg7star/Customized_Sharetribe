@@ -369,7 +369,6 @@ class PeopleController < Devise::RegistrationsController
   # Create a new person by params and current community
   def new_person(params, current_community)
     person = Person.new
-
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
     params[:person][:community_id] = current_community.id
@@ -382,7 +381,9 @@ class PeopleController < Devise::RegistrationsController
     person.emails << email
 
     person.inherit_settings_from(current_community)
-
+    
+    person.generate_username
+    
     if person.save!
       sign_in(resource_name, resource)
     end

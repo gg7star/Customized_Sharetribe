@@ -1,0 +1,77 @@
+/**
+  contentpage thumbnail grid view
+*/
+
+@import "mixins/all";
+
+$content-promo-thumbnail-grid-avatar: 36px;
+$content-promo-thumbnail-grid-avatar-padding: 6px;
+$content-promo-thumbnail-grid-author: $content-promo-thumbnail-grid-avatar + ($content-promo-thumbnail-grid-avatar-padding * 2);
+
+.content-promo-fluid-thumbnail-grid-narrow {
+  @include create-fluid-thumbnail-grid(content-promo, 1, 1, 2, 2, 2, 2, 2, 2);
+}
+
+.content-promo-fluid-thumbnail-grid-wide {
+  @include create-fluid-thumbnail-grid(content-promo, 1, 1, 1, 1, 2, 2, 3, 3);
+}
+
+.content-promo-fluid-thumbnail-grid-author {
+  @include border-bottom-radius($default-border-radius);
+  background-color: $highlight;
+  height: $content-promo-thumbnail-grid-author;
+  position: relative;
+}
+
+.content-promo-fluid-thumbnail-grid-author-avatar {
+  padding: $content-promo-thumbnail-grid-avatar-padding;
+}
+
+.content-promo-fluid-thumbnail-grid-author-avatar-image {
+  @include border-radius($default-border-radius);
+  height: $content-promo-thumbnail-grid-avatar;
+}
+
+.content-promo-fluid-thumbnail-grid-author-name {
+  @include small-type;
+  position: absolute;
+  top: $content-promo-thumbnail-grid-avatar-padding;
+  left: (2.5 * $content-promo-thumbnail-grid-avatar-padding) + $content-promo-thumbnail-grid-avatar; // 2.5 for some extra padding
+  right: $content-promo-thumbnail-grid-avatar-padding;
+  bottom: $content-promo-thumbnail-grid-avatar-padding;
+
+  // Vertical centering
+  line-height: $content-promo-thumbnail-grid-avatar;
+
+  @include ellipsis;
+}
+
+.content-promo-fluid-thumbnail-grid-details {
+  position: absolute;
+  top: $content-promo-thumbnail-grid-avatar-padding;
+  left: (2.5 * $content-promo-thumbnail-grid-avatar-padding) + $content-promo-thumbnail-grid-avatar; // 2.5 for some extra padding
+  right: $content-promo-thumbnail-grid-avatar-padding;
+  bottom: $content-promo-thumbnail-grid-avatar-padding;
+}
+.content-promo-fluid-thumbnail-grid-details-author-name {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+  @include small-type;
+  // Vertical centering
+  line-height: $content-promo-thumbnail-grid-avatar;
+  @include ellipsis;
+}
+.content-promo-fluid-thumbnail-grid-details-distance {
+  float:left;
+  width: 50%;
+  height:100%;
+  text-align:right;
+  color:$body;
+  font-weight:600;
+  @include small-type;
+  // Vertical centering
+  line-height: $content-promo-thumbnail-grid-avatar;
+  @include ellipsis;
+}
