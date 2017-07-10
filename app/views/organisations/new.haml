@@ -7,11 +7,9 @@
 - content_for (:page_content) do
 
   %section.marketplace-lander
-    .coverimage
+    .coverimage{style: "height: 18em;"}
       %figure.marketplace-cover-organisation.fluidratio
         .lander-content.marketplace-lander-content
-          = yield :title_header
-
 
   %section
     = render partial: "intro"
