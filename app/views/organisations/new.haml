@@ -5,13 +5,17 @@
   %h1= t('promo.sign_up_for_organisation')
  
 - content_for (:page_content) do
+
   %section.marketplace-lander
     .coverimage
       %figure.marketplace-cover-organisation.fluidratio
         .lander-content.marketplace-lander-content
-     
+          = yield :title_header
 
 .signup-form.centered-section{style:"max-width: 40em;"}
+
+  %section
+    = render partial: "intro"
 
   %section
     = render partial: "promo_content"

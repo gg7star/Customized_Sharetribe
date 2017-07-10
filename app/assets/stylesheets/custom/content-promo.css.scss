@@ -15,25 +15,51 @@
 
 .content-promo-description-container {
   border: 1px solid #d4cdcd;
+  color: #808080;
+  text-align: left;
 
   @include media(mobile) {
     padding: 0.5em;
   }
   
   @include media(mobile-landscape) {
-    height: 8em;
+    height: 7em;
     padding: 0.5em;
   }
 
   @include media(tablet) {
-    height: 8em;
-    padding: 5%;
+    height: 7em;
+    padding: 4%;
   }
 
   @include media(desktop) {
-    height: 12em;
-    padding: 5%;
+    height: 10em;
+    padding: 4%;
   }
+}
+
+.content-promo-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 24px;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+}
+
+.content-promo-intro-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 24px;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+}
+
+.content-promo-features-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 24px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .content-promo-description-title {
@@ -45,8 +71,8 @@
 }
 
 .content-promo-description-text {
-  color: #808080;
-  font-size: 18px;
+  color: #323232;
+  font-size: 15px;
 }
 
 .content-promo-even-more-container {
@@ -55,7 +81,7 @@
 }
 
 .content-promo-even-more-text {
-  color: #808080;
+  color: #323232;
   font-size: 18px;
   text-align: left;
 }
@@ -63,12 +89,12 @@
 .content-promo-contact-us-title {
   font-weight: bold;
   color: #333333;
-  font-size: 20px;
+  font-size: 24px;
   padding-top: 2.25em;
   padding-bottom: 0.5em;
 }
 
 .content-promo-contact-us-text {
-  color: #808080;
+  color: #323232;
   font-size: 18px;
 }

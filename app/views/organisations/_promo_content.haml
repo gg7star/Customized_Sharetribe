@@ -2,13 +2,12 @@
 .content-promo-container
   .content-promo-wrapper
     .row
+      .content-promo-features-title
+        = t("promo.content.features_title")
+
       %div{class: @category_menu_enabled ? "content-promo-fluid-thumbnail-grid-narrow" : "content-promo-fluid-thumbnail-grid-wide"}     
         .content-promo-fluid-thumbnail-grid
           = render partial: "content_template", locals: {content_name: "register_trial"}
-          = render partial: "content_template", locals: {content_name: "visibility_and_enrolment"}
-          = render partial: "content_template", locals: {content_name: "exposure_and_leads"}
-          = render partial: "content_template", locals: {content_name: "communication"}
-          = render partial: "content_template", locals: {content_name: "connect"}
-          = render partial: "content_template", locals: {content_name: "more_attraction"}
-        = render partial: "content_even_more", locals: {content_name: "even_more"}
+          = render partial: "content_template", locals: {content_name: "search_for_patients"}
+          = render partial: "content_template", locals: {content_name: "bookmarks"}
         = render partial: "content_contact_us"

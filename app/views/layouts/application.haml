@@ -52,7 +52,7 @@
             %figure.marketplace-cover.fluidratio
               .lander-content.marketplace-lander-content
                 = yield :title_header
-        - else #if !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+        - elsif !(params[:controller] == "organisations" && params[:action] == "new")
           .coverimage
             %figure.marketplace-cover-small.fluidratio
             .coverimage-fade{:class => yield(:coverfade_class)}
