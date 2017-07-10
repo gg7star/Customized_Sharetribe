@@ -1,16 +1,32 @@
 @import "../mixins/all";
 @import "compass/css3/background-size";
 
-.content-promo-container {
-  text-align: center;
-  background: #eeeeee;
+.content-promo-intro-container {
+    text-align: left;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
-.content-promo-wrapper {
+.content-promo-intro-wrapper {
   @include wrapper(0);
   padding-bottom: 0.75em;
   padding-left: 0.75em;
   padding-right: 0.75em;
+  background: transparent;
+  max-width: 40em;
+}
+
+.content-promo-intro-title {
+    font-weight: bold;
+    color: #333333;
+    font-size: 24px;
+    padding-top: 0.25em;
+    padding-bottom: 0.5em;
+}
+
+.content-promo-intro-text {
+  color: #323232;
+  font-size: 18px;
 }
 
 .content-promo-description-container {
@@ -23,17 +39,15 @@
   }
   
   @include media(mobile-landscape) {
-    height: 7em;
     padding: 0.5em;
   }
 
   @include media(tablet) {
-    height: 7em;
     padding: 4%;
   }
 
   @include media(desktop) {
-    height: 10em;
+    
     padding: 4%;
   }
 }
@@ -54,11 +68,25 @@
   padding-bottom: 0.5em;
 }
 
+.content-promo-features-container {
+  text-align: center;
+  background: #eeeeee;
+}
+
+.content-promo-features-wrapper {
+  @include wrapper(0);
+  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  background: transparent;
+  max-width: 40em;
+}
+
 .content-promo-features-title {
   font-weight: bold;
-  color: #333333;
+  color: #e058d4;
   font-size: 24px;
-  padding-top: 1em;
+  padding-top: 1.75em;
   padding-bottom: 1em;
 }
 
@@ -86,15 +114,29 @@
   text-align: left;
 }
 
+
+.content-promo-contact-us-container {
+  text-align: center;
+}
+
+.content-promo-contact-us-wrapper {
+  @include wrapper(0);
+  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  background: transparent;
+  max-width: 40em;
+}
+
 .content-promo-contact-us-title {
   font-weight: bold;
-  color: #333333;
+  color: #e058d4;
   font-size: 24px;
   padding-top: 2.25em;
   padding-bottom: 0.5em;
 }
 
 .content-promo-contact-us-text {
-  color: #323232;
+  color: #808080;
   font-size: 18px;
 }

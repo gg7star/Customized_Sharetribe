@@ -1,8 +1,10 @@
-%row
-  .content-promo-intro-title
-    = t("promo.content.intro_title")
+.content-promo-intro-container
+  .content-promo-intro-wrapper
+    %row
+      .content-promo-intro-title
+        = t("promo.content.intro_title")
 
-%row
-  .content-promo-contact-us-text
-    = t("promo.content.intro_text1")
-    %p= t("promo.content.intro_text2")
+    %row
+      .content-promo-intro-text
+        = t("promo.content.intro_text1")
+        %p= t("promo.content.intro_text2")

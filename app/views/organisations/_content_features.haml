@@ -1,7 +1,7 @@
 - testimonials_ico = image_path("testimonials/testimonials_ico.jpg")
-.content-promo-container
-  .content-promo-wrapper
-    .row
+.content-promo-features-container
+  .content-promo-features-wrapper
+    %row
       .content-promo-features-title
         = t("promo.content.features_title")
 
@@ -10,4 +10,3 @@
           = render partial: "content_template", locals: {content_name: "register_trial"}
           = render partial: "content_template", locals: {content_name: "search_for_patients"}
           = render partial: "content_template", locals: {content_name: "bookmarks"}
-        = render partial: "content_contact_us"

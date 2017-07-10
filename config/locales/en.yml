@@ -2171,7 +2171,7 @@ en:
       multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
   promo:
-    sign_up_for_organisation: "See how we can help, Learn more about MatchTrials!"
+    sign_up_for_organisation: "Help us connect patients to future treatments"
     content:
       register_trial_title: "Register Trial"
       register_trial_text: "Register clinical trials and allow patients and physicians to find your studies.With booking facility and communication easily manage request. You can update trials anytime."
