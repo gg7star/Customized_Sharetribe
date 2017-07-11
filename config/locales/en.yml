@@ -2173,8 +2173,6 @@ en:
   promo:
     sign_up_for_organisation: "Help us connect patients to future treatments"
     content:
-      register_trial_title: "Register Trial"
-      register_trial_text: "Register clinical trials and allow patients and physicians to find your studies.With booking facility and communication easily manage request. You can update trials anytime."
       visibility_and_enrolment_title: "Visibility and Enrolment"
       visibility_and_enrolment_text: "Patients can browse clinical trials using personalised filter.  Patients can apply for a suitable trial."
       exposure_and_leads_title: "Exposure and leads"
@@ -2185,18 +2183,24 @@ en:
       connect_text: "Organisation can ‘connect’ with patients of interest. This can help improve engagement and enrolment."
       more_attraction_title: "More Attraction"
       more_attraction_text: "Weekly newsletter sent to patients. Urgent trials can be featured. Account managers can assist your organisation to accomplish timely enrolment."
+
+      register_trial_title: "Register Trial"
+      register_trial_text: "Register clinical trials and update them anytime using our mobile friendly site. Patients and physicians can find and book trials. With booking facility and communication you can easily manage request through MatchTrials."
       search_for_patients_title: "Search for patients"
-      search_for_patients_text: "Search for patient's profiles by conditions and various other custom filters. Recruit suitable patients by requesting them to join trials. Enrolling patients as soon as trials come available."
+      search_for_patients_text: "Search for patients’ profiles by health condition (anonymous Identity*) and various other custom filters. Recruit suitable patients by requesting them to join trials. You can enroll patients as soon as trials become available."
+      connect_and_more_title: "Connect and more"
+      connect_and_more_text: "Using ‘connect’’ you are able to visit patients profile for later date. Patients can follow your organisation and receive updates. Access trials listings and share using social share function to reach even more audience."
+      
       bookmarks_title: "Bookmarks"
       bookmarks_text: "Using ‘bookmark’’ you are able to visit patients profile for later date. Patients can follow your organisation and receive updates. Access trials and share using social share."
       even_more_title: "Even More..."
       even_more_text: "Joining our platform will help to accelerate the discovery of drugs by facilitating the trials’ visibility and patient enrolment. You will find additional features 'coming soon that will help maintain better relationships with patients and reduce lost to follow-up patients more manageable. Our platform is built having patients’ in mind and using tools that encourage patients’ to comply with trials guidelines. Save time, reduce cost and delays."
       contact_us_title: "Contact Us"
       contact_us_text: "Complete the following form and we will contact you to walk you through the setup process."
-      intro_title: "Why join MatchTrials?"
-      intro_text1: "MatchTrials is built to overcome a common problem faced by many research organisations and patients looking for treatments – clinical research delays due to lack of visibility and  lack of patients or volunteers to enroll into the study.  We’ve created a system that is patient centric. Patient’s personal details are kept private. The anonymity gives patients the confidence to share their medical conditions before joining a clinical trial.
-        We believe this process saves time and gives patients a better chance to access clinical trials in due course."
-      intro_text2: "We believe this process saves time and gives patients a better chance to access clinical trials in due course."
+      intro_what_title: "What is Matchtrials?"
+      intro_what_text: "MatchTrials is built to overcome a common problem faced by many research organisations – clinical research delays due to lack of visibility and  lack of patients or volunteers to enroll into the study.  We’ve created a system that is patient centric. We believe this process saves time, cost associated to inefficiencies and gives patients a better chance to access clinical trials in due course."
+      intro_why_title: "Why join MatchTrials?"
+      intro_why_text: "MatchTrials matches and connects patients with clinical trials. We also help research organisation to search for patients who may qualify for studies. We’ve simplified the process of joining clinical trials for many patients and enabled them to be visible before research organisations who understand suitability best. Joining us would better server your organisation and patients who are searching for a potentially life-saving treatment."
       features_title: "Features"
       
     register:

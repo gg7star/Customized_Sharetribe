@@ -2,11 +2,11 @@
 .content-promo-features-container
   .content-promo-features-wrapper
     %row
-      %h2.content-promo-features-title
+      %h1.content-promo-features-title
         = t("promo.content.features_title")
 
       %div{class: @category_menu_enabled ? "content-promo-fluid-thumbnail-grid-narrow" : "content-promo-fluid-thumbnail-grid-wide"}     
         .content-promo-fluid-thumbnail-grid
           = render partial: "content_template", locals: {content_name: "register_trial"}
           = render partial: "content_template", locals: {content_name: "search_for_patients"}
-          = render partial: "content_template", locals: {content_name: "bookmarks"}
+          = render partial: "content_template", locals: {content_name: "connect_and_more"}
