@@ -2,7 +2,8 @@
   initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 - content_for :title_header do
-  %h1= t('promo.sign_up_for_organisation')
+  %h1.content-promo-header-title
+    = t('promo.sign_up_for_organisation')
  
 - content_for (:page_content) do
 
@@ -10,7 +11,7 @@
     .coverimage{style: "height: 18em;"}
       %figure.marketplace-cover-organisation.fluidratio
         .lander-content.marketplace-lander-content
-
+          = yield :title_header
   %section
     = render partial: "intro"
 
