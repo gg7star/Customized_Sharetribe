@@ -1749,6 +1749,7 @@ en:
     new:
       create_new_account: "Create account"
       create_new_account_for_patient: "Join now"
+      already_on_matchtrails: "Already on MatchTrails?"
       email: "Email address"
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed or it is already in use. If you can't get in, contact us."
