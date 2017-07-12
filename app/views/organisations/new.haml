@@ -56,3 +56,8 @@
       = form.select :org_type, ['A pharma company', 'A biotech company', 'A CRO', 'A clinical Trial Site', 'An academic Institution', 'A charity'], { :include_blank => '- Please select -' }, :required => true, :class => :text_field
 
       = button_tag t('promo.register.submit_now')
+
+      .links
+        - unless @facebook_merge
+          = t('people.new.already_on_matchtrails') + " "
+          = link_to t('sessions.new.login'), (@current_community ? login_path : new_tribe_path), :class => "green_part_link"

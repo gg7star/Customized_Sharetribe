@@ -69,4 +69,9 @@
 
     = button_tag t('.create_new_account_for_patient')
 
+    .links
+      - unless @facebook_merge
+        = t('.already_on_matchtrails') + " "
+        = link_to t('sessions.new.login'), (@current_community ? login_path : new_tribe_path), :class => "green_part_link"
+
 = render :partial => "help_texts", :collection => ["terms", "help_invitation_code"], :as => :field
