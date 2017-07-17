@@ -43,6 +43,7 @@
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
 #  approved                           :boolean          default(FALSE), not null
+#  usertype                           :string(255)
 #
 # Indexes
 #
