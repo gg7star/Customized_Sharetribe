@@ -1778,6 +1778,7 @@ en:
       OR: OR
       signup_with_email: "Sign up with email"
       signup_as_organisation_with_email: "For organisation, sign up with email"
+      user_type: "Your type"
     profile_feedback:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"

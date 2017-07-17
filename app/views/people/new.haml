@@ -41,6 +41,10 @@
     = form.label :email, t('.email')
     = form.text_field :email, :class => :text_field, :maxlenght => "255"
 
+    -# User Level
+    = form.label :usertype, t('.user_type')
+    = form.select :usertype, ["I'm looking for a treatment", "I want to join paid trials"], { :include_blank => '- Please select -' }, :required => true, :class => :text_field
+
     -# Name
     = form.label :given_name, t('.given_name')
     = form.text_field :given_name, :class => :text_field, :maxlength => "30"
