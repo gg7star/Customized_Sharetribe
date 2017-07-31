@@ -1,4 +1,4 @@
-class AddDeviseToOrganisations < ActiveRecord::Migration
+class CreateOrganisations < ActiveRecord::Migration
   def self.up
     change_table(:organisations) do |t|
       ## Database authenticatable
