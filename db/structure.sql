@@ -1300,19 +1300,26 @@ DROP TABLE IF EXISTS `organisations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `organisations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `encrypted_password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `reset_password_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reset_password_sent_at` datetime DEFAULT NULL,
+  `remember_created_at` datetime DEFAULT NULL,
+  `sign_in_count` int(11) NOT NULL DEFAULT '0',
+  `current_sign_in_at` datetime DEFAULT NULL,
+  `last_sign_in_at` datetime DEFAULT NULL,
+  `current_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `org_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone_number` text COLLATE utf8_unicode_ci,
+  `org_phone_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `org_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sent_offer` tinyint(1) DEFAULT '0',
   `subscription_complete` tinyint(1) DEFAULT '0',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `test_group_number` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `locale` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
+  UNIQUE KEY `index_organisations_on_email` (`email`),
+  UNIQUE KEY `index_organisations_on_reset_password_token` (`reset_password_token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1891,7 +1898,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-12 15:20:50
+-- Dump completed on 2017-07-17 16:58:46
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3563,4 +3570,16 @@ INSERT INTO schema_migrations (version) VALUES ('20170706171951');
 INSERT INTO schema_migrations (version) VALUES ('20170706191520');
 
 INSERT INTO schema_migrations (version) VALUES ('20170712132023');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717134112');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717134813');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717141445');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717141535');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717144521');
+
+INSERT INTO schema_migrations (version) VALUES ('20170717144539');
 
