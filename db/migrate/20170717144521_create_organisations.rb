@@ -1,5 +1,5 @@
 class CreateOrganisations < ActiveRecord::Migration
-  def self.up
+  def change
     change_table(:organisations) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
